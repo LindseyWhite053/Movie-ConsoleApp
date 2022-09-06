@@ -1,4 +1,10 @@
-﻿Console.WriteLine("Welcome to MockBuster!");
+﻿using Mockbuster;
+
+Console.WriteLine("Welcome to MockBuster!");
+
+List<Movie> Movies = MovieRepo.GetMovies();
+
+
 
 // Program Class / User Interface
 // Conrol the flow of the application here. 
@@ -26,8 +32,6 @@
 
 //Client Validation 
 //Validate all client input and ensure the client receives messages for any invalid input. 
-
-
 
 
 

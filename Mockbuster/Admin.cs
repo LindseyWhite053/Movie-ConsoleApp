@@ -6,7 +6,7 @@ using System.Threading.Tasks;
 
 namespace Mockbuster
 {
-    internal class Admin
+    public class Admin
     {
         // Admin Class 
         // Derive from the User class 

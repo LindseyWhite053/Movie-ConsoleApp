@@ -6,11 +6,21 @@ using System.Threading.Tasks;
 
 namespace Mockbuster
 {
-    internal class MovieRepo
+    public class MovieRepo
     {
-        // Movie Repo Class 
         // houses the repository of movie in the application 
-        // Include a static method that returns a list of 5 movie objects 
+        public static List<Movie> GetMovies()
+        {
+            List<Movie> movies = new List<Movie>
+            {
+                new Movie("The Shawshank Redemption", "Tim Robbins", "Drama", "Frank Darabont"),
+                new Movie("The Godfather", "Marlon Brando", "Crime Drama", "Francis Ford Coppola"),
+                new Movie("The Lord of the Rings: The Fellowship of the Ring", "Elijah Wood", "Adventure", "Peter Jackson"),
+                new Movie("The Lord of the Rings: Return of the King", "Elijah Wood", "Adventure", "Peter Jackson"),
+                new Movie("The Dark Knight", "Christian Bale", "Action", "Christopher Nolan")
+            };
 
+            return movies;
+        }
     }
 }
