@@ -1,0 +1,15 @@
+C:\Users\Lwhite5\Desktop\Projects\Midterm_Mockbuster\Mockbuster\bin\Debug\net6.0\Mockbuster.exe
+C:\Users\Lwhite5\Desktop\Projects\Midterm_Mockbuster\Mockbuster\bin\Debug\net6.0\Mockbuster.deps.json
+C:\Users\Lwhite5\Desktop\Projects\Midterm_Mockbuster\Mockbuster\bin\Debug\net6.0\Mockbuster.runtimeconfig.json
+C:\Users\Lwhite5\Desktop\Projects\Midterm_Mockbuster\Mockbuster\bin\Debug\net6.0\Mockbuster.dll
+C:\Users\Lwhite5\Desktop\Projects\Midterm_Mockbuster\Mockbuster\bin\Debug\net6.0\Mockbuster.pdb
+C:\Users\Lwhite5\Desktop\Projects\Midterm_Mockbuster\Mockbuster\obj\Debug\net6.0\Mockbuster.csproj.AssemblyReference.cache
+C:\Users\Lwhite5\Desktop\Projects\Midterm_Mockbuster\Mockbuster\obj\Debug\net6.0\Mockbuster.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lwhite5\Desktop\Projects\Midterm_Mockbuster\Mockbuster\obj\Debug\net6.0\Mockbuster.AssemblyInfoInputs.cache
+C:\Users\Lwhite5\Desktop\Projects\Midterm_Mockbuster\Mockbuster\obj\Debug\net6.0\Mockbuster.AssemblyInfo.cs
+C:\Users\Lwhite5\Desktop\Projects\Midterm_Mockbuster\Mockbuster\obj\Debug\net6.0\Mockbuster.csproj.CoreCompileInputs.cache
+C:\Users\Lwhite5\Desktop\Projects\Midterm_Mockbuster\Mockbuster\obj\Debug\net6.0\Mockbuster.dll
+C:\Users\Lwhite5\Desktop\Projects\Midterm_Mockbuster\Mockbuster\obj\Debug\net6.0\refint\Mockbuster.dll
+C:\Users\Lwhite5\Desktop\Projects\Midterm_Mockbuster\Mockbuster\obj\Debug\net6.0\Mockbuster.pdb
+C:\Users\Lwhite5\Desktop\Projects\Midterm_Mockbuster\Mockbuster\obj\Debug\net6.0\Mockbuster.genruntimeconfig.cache
+C:\Users\Lwhite5\Desktop\Projects\Midterm_Mockbuster\Mockbuster\obj\Debug\net6.0\ref\Mockbuster.dll
