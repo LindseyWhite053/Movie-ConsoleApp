@@ -30,6 +30,18 @@ namespace Mockbuster
 
         }
 
+        public static int FindIndex(List<Movie> theList, string search)
+        {
+            int movieIndex = -1;
+            for (int i = 0; i < theList.Count; i++)
+            {
+                if (search == theList[i].MovieTitle)
+                {
+                    movieIndex = i;
+                }
+            }
+            return movieIndex;
+        }
 
         // filters a list by movie title. Returns a list of movies of only those movie names. 
         public static List<Movie> FindTitle(List<Movie> theList, string search)
@@ -42,16 +54,6 @@ namespace Mockbuster
                 {
                     filteredList.Add(m);
                 }
-            }
-
-            if (filteredList.Count > 0)
-            {
-                Console.WriteLine("Movies that fit your search: ");
-                User.ViewMovies(filteredList);
-            }
-            else
-            {
-                Console.WriteLine($"Unable to find any movies with the title {search}. ");
             }
 
             return filteredList;
@@ -70,17 +72,6 @@ namespace Mockbuster
                 }
             }
 
-            if (filteredList.Count > 0)
-            {
-                Console.WriteLine("Movies that fit your search: ");
-                User.ViewMovies(filteredList);
-            }
-            else
-            {
-                Console.WriteLine($"Unable to find any movies with the genre {search}. ");
-            }
-
-
             return filteredList;
         }
 
@@ -96,17 +87,6 @@ namespace Mockbuster
                     filteredList.Add(m);
                 }
             }
-
-            if (filteredList.Count > 0)
-            {
-                Console.WriteLine("Movies that fit your search: ");
-                User.ViewMovies(filteredList);
-            }
-            else
-            {
-                Console.WriteLine($"Unable to find any movies with the lead actor/actress {search}. ");
-            }
-
 
             return filteredList;
 
@@ -124,17 +104,6 @@ namespace Mockbuster
                     filteredList.Add(m);
                 }
             }
-
-            if (filteredList.Count > 0)
-            {
-                Console.WriteLine("Movies that fit your search: ");
-                User.ViewMovies(filteredList);
-            }
-            else
-            {
-                Console.WriteLine($"Unable to find any movies with the director {search}. ");
-            }
-
 
             return filteredList;
         }

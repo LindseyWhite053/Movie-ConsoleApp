@@ -88,7 +88,7 @@ namespace Mockbuster
         public static void RemoveMovie(List<Movie> theList, int index)
         {
             // using  the list, index number delete the movie
-            theList.RemoveAt(index - 1);
+            theList.RemoveAt(index);
 
             Console.WriteLine("Your selection has been removed from the list of movies.");
 

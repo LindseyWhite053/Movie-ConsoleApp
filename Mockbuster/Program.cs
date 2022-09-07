@@ -38,7 +38,7 @@ while (keepGoing == true)
         Admin.ViewMenu();
     }
 
-    Console.Write("What would you like to do?(select by number): ");
+    Console.Write("\nWhat would you like to do?(select by number): ");
     string input = Console.ReadLine().ToLower();
     int num = 0;
 
@@ -63,6 +63,7 @@ while (keepGoing == true)
 
 
     string text = "";
+    string yesNo = "";
     List<Movie> newList = new List<Movie>();
     switch (num)
     {
@@ -72,69 +73,159 @@ while (keepGoing == true)
             break;
         case 2:
             //Find a movie by title
-            Console.Write("Enter the movie title: ");
+            Console.Write("\nEnter the movie title: ");
             text = Console.ReadLine();
-            User.FindTitle(Movies, text);
+            newList = User.FindTitle(Movies, text);
+
+            if (newList.Count > 0)
+            {
+                Console.WriteLine("Movies that fit your search: ");
+                User.ViewMovies(newList);
+            }
+            else
+            {
+                Console.WriteLine($"Unable to find any movies with the title {text}. ");
+            }
             break;
         case 3:
             //find a movie by genre
-            Console.Write("Enter the movie genre: ");
+            Console.Write("\nEnter the movie genre: ");
             text = Console.ReadLine();
-            User.FindGenre(Movies, text);
+            newList = User.FindGenre(Movies, text);
+
+            if (newList.Count > 0)
+            {
+                Console.WriteLine("Movies that fit your search: ");
+                User.ViewMovies(newList);
+            }
+            else
+            {
+                Console.WriteLine($"Unable to find any movies with the genre {text}. ");
+            }
+
             break;
+
         case 4:
             // find a movie by lead actor/actress
-            Console.Write("Enter the movie's lead actor/actress: ");
+            Console.Write("\nEnter the movie's lead actor/actress: ");
             text = Console.ReadLine();
-            User.FindMainActor(Movies, text);
+            newList = User.FindMainActor(Movies, text);
+
+            if (newList.Count > 0)
+            {
+                Console.WriteLine("Movies that fit your search: ");
+                User.ViewMovies(newList);
+            }
+            else
+            {
+                Console.WriteLine($"Unable to find any movies with the lead actor/actress {text}. ");
+            }
+
             break;
         case 5:
             //find movie by director
-            Console.Write("Enter the movie's director: ");
+            Console.Write("\nEnter the movie's director: ");
             text = Console.ReadLine();
-            User.FindDirector(Movies, text);
+            newList = User.FindDirector(Movies, text);
+
+            if (newList.Count > 0)
+            {
+                Console.WriteLine("Movies that fit your search: ");
+                User.ViewMovies(newList);
+            }
+            else
+            {
+                Console.WriteLine($"Unable to find any movies with the director {text}. ");
+            }
+
+
             break;
         case 6:
             // Add a new movie to the repository 
-            Console.Write("Enter the new movie title: ");
+            Console.Write("\nEnter the new movie title: ");
             string title = Console.ReadLine();
 
-            Console.Write("Enter the lead actor/actress name: ");
-            string actor = Console.ReadLine();
+            List<Movie> existingMovies = User.FindTitle(Movies, title);
+            bool exists = false;
 
-            Console.Write("Enter the movie genre: ");
-            string genre = Console.ReadLine();
-
-            Console.Write("Enter the movie director: ");
-            string director = Console.ReadLine();
-
-            //Validate the information entered was correct 
-            Movie newMovie = new Movie(title, actor, genre, director);
-            Console.Write($"Would you like to add {newMovie} to the movie list(y/n)? ");
-            string yesNo = Console.ReadLine().ToLower();
-
-            while (true)
+            if (existingMovies.Count > 0)
             {
-                if (yesNo == "y" || yesNo == "yes")
+                Console.WriteLine("The following movies are similar to your new movie title: ");
+                foreach (Movie m in existingMovies)
                 {
-                    Admin.AddMovie(Movies, title, actor, genre, director);
-                    break;
+                    Console.WriteLine(m);
                 }
-                else if (yesNo == "n" || yesNo == "no")
+
+                Console.WriteLine("\nDoes this list include the movie you are trying to add(y/n): ");
+                string answer = Console.ReadLine().ToLower();
+
+                while (true)
                 {
-                    Console.WriteLine("This movie has not been added.");
-                    break;
+
+                    if (answer == "y" || answer == "yes")
+                    {
+                        exists = true;
+                        break;
+                    }
+                    else if (answer == "n" || answer == "no")
+                    {
+                        break;
+                    }
+                    else
+                    {
+                        Console.WriteLine("Please enter \"yes\" or \"no\"");
+                        answer = Console.ReadLine().ToLower();
+                    }
                 }
-                else
+
+            }
+
+
+            if (exists == true)
+            {
+                Console.WriteLine("That movie already exists. A duplicate should not be added. ");
+
+            }
+            else if (exists == false)
+            {
+                Console.Write("Enter the lead actor/actress name: ");
+                string actor = Console.ReadLine();
+
+                Console.Write("Enter the movie genre: ");
+                string genre = Console.ReadLine();
+
+                Console.Write("Enter the movie director: ");
+                string director = Console.ReadLine();
+
+                //Validate the information entered was correct 
+                Movie newMovie = new Movie(title, actor, genre, director);
+                Console.Write($"\nWould you like to add {newMovie} to the movie list(y/n)? ");
+                yesNo = Console.ReadLine().ToLower();
+
+                while (true)
                 {
-                    Console.Write("Please enter \"yes\" or \"no\": ");
-                    yesNo = Console.ReadLine().ToLower();
+                    if (yesNo == "y" || yesNo == "yes")
+                    {
+                        Admin.AddMovie(Movies, title, actor, genre, director);
+                        break;
+                    }
+                    else if (yesNo == "n" || yesNo == "no")
+                    {
+                        Console.WriteLine("This movie has not been added.");
+                        break;
+                    }
+                    else
+                    {
+                        Console.Write("Please enter \"yes\" or \"no\": ");
+                        yesNo = Console.ReadLine().ToLower();
+                    }
                 }
             }
+
             break;
         case 7:
             // Edit an existing movie in the Movie Repository 
-            Console.Write("Enter the title of the movie you would like to update: ");
+            Console.Write("\nEnter the title of the movie you would like to update: ");
             text = Console.ReadLine().ToLower();
 
             // using their input search the list to display a list of movies they would like and have them select by number 
@@ -142,8 +233,9 @@ while (keepGoing == true)
 
             if (newList.Count > 0)
             {
-
-                Console.Write("Which movie would you like to edit(select by number): ");
+                Console.WriteLine("Movies that fit your search: ");
+                User.ViewMovies(newList);
+                Console.Write("\nWhich movie would you like to edit(select by number): ");
 
                 while (true)
                 {
@@ -159,7 +251,8 @@ while (keepGoing == true)
                     }
                 }
 
-                Console.WriteLine($"Would you like to edit {newList[num - 1]} (y/n): ");
+                Console.WriteLine($"\n{newList[num - 1]} has been selected.");
+                Console.Write("Continue with editing(y/n): ");
                 yesNo = Console.ReadLine();
 
                 while (true)
@@ -168,7 +261,7 @@ while (keepGoing == true)
                     {
                         // using the index number display the attributes and ask which one they would like to edit
                         Admin.DisplayAttributes(newList, num);
-                        Console.Write("Which attribute would you like to update \"title\", \"actor\", \"genre\", \"director\": ");
+                        Console.Write("\nWhich attribute would you like to update \"title\", \"actor\", \"genre\", \"director\": ");
                         input = Console.ReadLine().ToLower();
 
                         string newText;
@@ -179,7 +272,7 @@ while (keepGoing == true)
                                 Console.Write($"Enter new text to replace \"{newList[num - 1].MovieTitle}\": ");
                                 newText = Console.ReadLine();
 
-                                Console.WriteLine($"{newList[num - 1]} will be updated to {newText} starring {newList[num - 1].MainActor} ({newList[num - 1].Genre}), Directed by {newList[num - 1].Director}");
+                                Console.WriteLine($"\"{newList[num - 1]}\" will be updated to: \n\"{newText} starring {newList[num - 1].MainActor} ({newList[num - 1].Genre}), Directed by {newList[num - 1].Director}\"");
                                 break;
                             }
                             else if (input == "actor" || input == "actress")
@@ -187,7 +280,7 @@ while (keepGoing == true)
                                 Console.Write($"Enter new text to replace \"{newList[num - 1].MainActor}\": ");
                                 newText = Console.ReadLine();
 
-                                Console.WriteLine($"{newList[num - 1]} will be updated to {newList[num - 1].MovieTitle} starring {newText} ({newList[num - 1].Genre}), Directed by {newList[num - 1].Director}");
+                                Console.WriteLine($"\"{newList[num - 1]}\" will be updated to: \n\"{newList[num - 1].MovieTitle} starring {newText} ({newList[num - 1].Genre}), Directed by {newList[num - 1].Director}\"");
                                 break;
                             }
                             else if (input == "genre")
@@ -195,7 +288,7 @@ while (keepGoing == true)
                                 Console.Write($"Enter new text to replace \"{newList[num - 1].Genre}\": ");
                                 newText = Console.ReadLine();
 
-                                Console.WriteLine($"{newList[num - 1]} will be updated to {newList[num - 1].MovieTitle} starring {newList[num - 1].MainActor} ({newText}), Directed by {newList[num - 1].Director}");
+                                Console.WriteLine($"\"{newList[num - 1]}\" will be updated to: \n\"{newList[num - 1].MovieTitle} starring {newList[num - 1].MainActor} ({newText}), Directed by {newList[num - 1].Director}\"");
                                 break;
                             }
                             else if (input == "director")
@@ -203,17 +296,17 @@ while (keepGoing == true)
                                 Console.Write($"Enter new text to replace \"{newList[num - 1].Director}\": ");
                                 newText = Console.ReadLine();
 
-                                Console.WriteLine($"{newList[num - 1]} will be updated to {newList[num - 1].MovieTitle} starring {newList[num - 1].MainActor} ({newList[num - 1].Genre}), Directed by {newText}");
+                                Console.WriteLine($"\"{newList[num - 1]}\" will be updated to: \n\"{newList[num - 1].MovieTitle} starring {newList[num - 1].MainActor} ({newList[num - 1].Genre}), Directed by {newText}\"");
                                 break;
                             }
                             else
                             {
-                                Console.WriteLine("Please enter \"title\", \"actor\", \"genre\", \"director\": ");
+                                Console.Write("Please enter \"title\", \"actor\", \"genre\", \"director\": ");
                                 input = Console.ReadLine();
                             }
                         }
 
-                        Console.WriteLine("Would you like to continue with this update(y/n): ");
+                        Console.Write("\nWould you like to continue with this update(y/n): ");
                         yesNo = Console.ReadLine();
                         while (true)
                         {
@@ -224,7 +317,7 @@ while (keepGoing == true)
                             }
                             else if (yesNo == "n" || yesNo == "no")
                             {
-                                Console.WriteLine("This movie has not been added.");
+                                Console.WriteLine("This movie has not been updated.");
                                 break;
                             }
                             else
@@ -238,7 +331,6 @@ while (keepGoing == true)
                     }
                     else if (yesNo == "n" || yesNo == "no")
                     {
-                        Console.WriteLine("Returning to the menu.");
                         break;
                     }
                     else
@@ -247,12 +339,15 @@ while (keepGoing == true)
                         yesNo = Console.ReadLine().ToLower();
                     }
                 }
+            } else
+            {
+                Console.WriteLine("There are no existing movies that match your search.");
             }
 
             break;
         case 8:
             // Delete an existing movie in the movie repository
-            Console.Write("Enter the title of the movie you would like to remove: ");
+            Console.Write("\nEnter the title of the movie you would like to remove: ");
             text = Console.ReadLine();
 
             // using their input search the list to display a list of movies they would like and have them select by number 
@@ -260,7 +355,9 @@ while (keepGoing == true)
 
             if (newList.Count > 0)
             {
-                Console.Write("Which movie would you like to remove(select by number): ");
+                Console.WriteLine("Movies that fit your search: ");
+                User.ViewMovies(newList);
+                Console.Write("\nWhich movie would you like to remove(select by number): ");
 
                 while (true)
                 {
@@ -276,17 +373,11 @@ while (keepGoing == true)
                     }
                 }
 
-                int movieIndex = -1;
-                for (int i = 0; i < Movies.Count; i++)
-                {
-                    if (newList[num-1].MovieTitle == Movies[i].MovieTitle)
-                    {
-                        movieIndex = i;
-                    }
-                }
 
-                Console.WriteLine($"Your have selected {Movies[movieIndex]}");
-                Console.WriteLine("Would you like to continue removing this movie(y/n): ");
+                int index = User.FindIndex(Movies, newList[num - 1].MovieTitle);
+
+                Console.WriteLine($"You have selected \"{Movies[index]}\".");
+                Console.Write("\nWould you like to continue removing this movie(y/n): ");
                 yesNo = Console.ReadLine();
                 while (true)
                 {
@@ -307,14 +398,18 @@ while (keepGoing == true)
                     }
                 }
 
+            } 
+            else
+            {
+                Console.WriteLine($"No movies with the title \"{text}\" currently exists.");
             }
 
             break;
     
     }
 
-    Console.WriteLine();
-    Console.Write("Would you like to return to the main menu (y/n): ");
+
+    Console.Write("\nWould you like to return to the main menu (y/n): ");
     input = Console.ReadLine().ToLower();
 
     while (true)

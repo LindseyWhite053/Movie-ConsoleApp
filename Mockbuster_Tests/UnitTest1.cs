@@ -1,6 +1,5 @@
 using Mockbuster;
 
-
 namespace Mockbuster_Tests
 {
     public class MovieRepo_Tests
@@ -99,6 +98,47 @@ namespace Mockbuster_Tests
 
     public class User_Tests
     {
+
+        //FindIndex() tests
+        [Fact]
+        public void TestFindIndex0()
+        {
+            List<Movie> testList = new List<Movie>
+            {
+                new Movie("The Shawshank Redemption", "Tim Robbins", "Drama", "Frank Darabont"),
+                new Movie("The Godfather", "Marlon Brando", "Crime Drama", "Francis Ford Coppola"),
+                new Movie("The Lord of the Rings: The Fellowship of the Ring", "Elijah Wood", "Adventure", "Peter Jackson"),
+                new Movie("The Lord of the Rings: Return of the King", "Elijah Wood", "Adventure", "Peter Jackson"),
+                new Movie("The Dark Knight", "Christian Bale", "Action", "Christopher Nolan")
+            };
+
+            string testInput = "The Shawshank Redemption";
+
+            int actual = User.FindIndex(testList, testInput);
+
+            Assert.Equal(0, actual);
+        }
+
+        [Fact]
+        public void TestFindIndex4()
+        {
+            List<Movie> testList = new List<Movie>
+            {
+                new Movie("The Shawshank Redemption", "Tim Robbins", "Drama", "Frank Darabont"),
+                new Movie("The Godfather", "Marlon Brando", "Crime Drama", "Francis Ford Coppola"),
+                new Movie("The Lord of the Rings: The Fellowship of the Ring", "Elijah Wood", "Adventure", "Peter Jackson"),
+                new Movie("The Lord of the Rings: Return of the King", "Elijah Wood", "Adventure", "Peter Jackson"),
+                new Movie("The Dark Knight", "Christian Bale", "Action", "Christopher Nolan")
+            };
+
+            string testInput = "The Dark Knight";
+
+            int actual = User.FindIndex(testList, testInput);
+
+            Assert.Equal(4, actual);
+        }
+
+
         // FindMovie() tests
 
         [Fact]
@@ -438,7 +478,7 @@ namespace Mockbuster_Tests
         // RemoveMovie() tests
 
         [Fact]
-        public void TestRemoveMovie1()
+        public void TestRemoveMovie0()
         {
             List<Movie> testList = new List<Movie>
             {
@@ -450,7 +490,7 @@ namespace Mockbuster_Tests
             };
 
             //Passed in as the number on the list 
-            Admin.RemoveMovie(testList, 1);
+            Admin.RemoveMovie(testList, 0);
 
             Assert.Equal("The Godfather", testList[0].MovieTitle);
         }
@@ -470,7 +510,7 @@ namespace Mockbuster_Tests
             //Passed in as the number on the list. 
             Admin.RemoveMovie(testList, 3);
 
-            Assert.Equal("The Lord of the Rings: Return of the King", testList[2].MovieTitle);
+            Assert.Equal("The Dark Knight", testList[3].MovieTitle);
         }
 
     }
