@@ -3,6 +3,100 @@ using Mockbuster;
 
 namespace Mockbuster_Tests
 {
+    public class MovieRepo_Tests
+    {
+
+        [Fact]
+        public void TestMovieRepoMovieTitle()
+        {
+            List<Movie> expectedList = new List<Movie>
+            {
+                new Movie("The Shawshank Redemption", "Tim Robbins", "Drama", "Frank Darabont"),
+                new Movie("The Godfather", "Marlon Brando", "Crime Drama", "Francis Ford Coppola"),
+                new Movie("The Lord of the Rings: The Fellowship of the Ring", "Elijah Wood", "Adventure", "Peter Jackson"),
+                new Movie("The Lord of the Rings: Return of the King", "Elijah Wood", "Adventure", "Peter Jackson"),
+                new Movie("The Dark Knight", "Christian Bale", "Action", "Christopher Nolan")
+            };
+
+            List<Movie> actualList = MovieRepo.GetMovies();
+
+            Assert.Equal(expectedList[0].MovieTitle, actualList[0].MovieTitle);
+
+        }
+
+        [Fact]
+        public void TestMovieRepoActor()
+        {
+            List<Movie> expectedList = new List<Movie>
+            {
+                new Movie("The Shawshank Redemption", "Tim Robbins", "Drama", "Frank Darabont"),
+                new Movie("The Godfather", "Marlon Brando", "Crime Drama", "Francis Ford Coppola"),
+                new Movie("The Lord of the Rings: The Fellowship of the Ring", "Elijah Wood", "Adventure", "Peter Jackson"),
+                new Movie("The Lord of the Rings: Return of the King", "Elijah Wood", "Adventure", "Peter Jackson"),
+                new Movie("The Dark Knight", "Christian Bale", "Action", "Christopher Nolan")
+            };
+
+            List<Movie> actualList = MovieRepo.GetMovies();
+
+            Assert.Equal(expectedList[0].MainActor, actualList[0].MainActor);
+
+        }
+
+        [Fact]
+        public void TestMovieRepoGenre()
+        {
+            List<Movie> expectedList = new List<Movie>
+            {
+                new Movie("The Shawshank Redemption", "Tim Robbins", "Drama", "Frank Darabont"),
+                new Movie("The Godfather", "Marlon Brando", "Crime Drama", "Francis Ford Coppola"),
+                new Movie("The Lord of the Rings: The Fellowship of the Ring", "Elijah Wood", "Adventure", "Peter Jackson"),
+                new Movie("The Lord of the Rings: Return of the King", "Elijah Wood", "Adventure", "Peter Jackson"),
+                new Movie("The Dark Knight", "Christian Bale", "Action", "Christopher Nolan")
+            };
+
+            List<Movie> actualList = MovieRepo.GetMovies();
+
+            Assert.Equal(expectedList[0].Genre, actualList[0].Genre);
+
+        }
+
+        [Fact]
+        public void TestMovieRepoDirectors()
+        {
+            List<Movie> expectedList = new List<Movie>
+            {
+                new Movie("The Shawshank Redemption", "Tim Robbins", "Drama", "Frank Darabont"),
+                new Movie("The Godfather", "Marlon Brando", "Crime Drama", "Francis Ford Coppola"),
+                new Movie("The Lord of the Rings: The Fellowship of the Ring", "Elijah Wood", "Adventure", "Peter Jackson"),
+                new Movie("The Lord of the Rings: Return of the King", "Elijah Wood", "Adventure", "Peter Jackson"),
+                new Movie("The Dark Knight", "Christian Bale", "Action", "Christopher Nolan")
+            };
+
+            List<Movie> actualList = MovieRepo.GetMovies();
+
+            Assert.Equal(expectedList[0].Director, actualList[0].Director);
+
+        }
+
+        [Fact]
+        public void TestMovieRepoLastIndexDirectors()
+        {
+            List<Movie> expectedList = new List<Movie>
+            {
+                new Movie("The Shawshank Redemption", "Tim Robbins", "Drama", "Frank Darabont"),
+                new Movie("The Godfather", "Marlon Brando", "Crime Drama", "Francis Ford Coppola"),
+                new Movie("The Lord of the Rings: The Fellowship of the Ring", "Elijah Wood", "Adventure", "Peter Jackson"),
+                new Movie("The Lord of the Rings: Return of the King", "Elijah Wood", "Adventure", "Peter Jackson"),
+                new Movie("The Dark Knight", "Christian Bale", "Action", "Christopher Nolan")
+            };
+
+            List<Movie> actualList = MovieRepo.GetMovies();
+
+            Assert.Equal(expectedList[4].Director, actualList[4].Director);
+
+        }
+    }
+
     public class User_Tests
     {
         // FindMovie() tests
@@ -193,109 +287,192 @@ namespace Mockbuster_Tests
 
     public class Admin_Tests
     {
-        //Admin Class Methods
-        // Add 
-        // Edit
-        // Remove
 
+        // AddMovie() tests
         [Fact]
-        public void Test1()
+        public void TestAddMovieTrue()
         {
+            List<Movie> testList = new List<Movie>
+            {
+                new Movie("The Shawshank Redemption", "Tim Robbins", "Drama", "Frank Darabont"),
+                new Movie("The Godfather", "Marlon Brando", "Crime Drama", "Francis Ford Coppola"),
+                new Movie("The Lord of the Rings: The Fellowship of the Ring", "Elijah Wood", "Adventure", "Peter Jackson"),
+                new Movie("The Lord of the Rings: Return of the King", "Elijah Wood", "Adventure", "Peter Jackson"),
+                new Movie("The Dark Knight", "Christian Bale", "Action", "Christopher Nolan")
+            };
+
+            string testTitle = "Little Miss Sunshine";
+            string testActor = "Steve Carell";
+            string testGenre = "Comedy";
+            string testDirector = "Jonathan Dayton";
+
+            bool actual = Admin.AddMovie(testList, testTitle, testActor, testGenre, testDirector);
+
+            Assert.True(actual);
 
         }
+
+        [Fact]
+        public void TestAddMovie()
+        {
+            List<Movie> testList = new List<Movie>
+            {
+                new Movie("The Shawshank Redemption", "Tim Robbins", "Drama", "Frank Darabont"),
+                new Movie("The Godfather", "Marlon Brando", "Crime Drama", "Francis Ford Coppola"),
+                new Movie("The Lord of the Rings: The Fellowship of the Ring", "Elijah Wood", "Adventure", "Peter Jackson"),
+                new Movie("The Lord of the Rings: Return of the King", "Elijah Wood", "Adventure", "Peter Jackson"),
+                new Movie("The Dark Knight", "Christian Bale", "Action", "Christopher Nolan")
+            };
+
+            string testTitle = "Little Miss Sunshine";
+            string testActor = "Steve Carell";
+            string testGenre = "Comedy";
+            string testDirector = "Jonathan Dayton";
+
+            bool actual = Admin.AddMovie(testList, testTitle, testActor, testGenre, testDirector);
+
+            Assert.Equal("Little Miss Sunshine", testList[5].MovieTitle);
+            Assert.True(actual);
+
+        }
+        [Fact]
+        public void TestAddMovieExisting()
+        {
+            List<Movie> testList = new List<Movie>
+            {
+                new Movie("The Shawshank Redemption", "Tim Robbins", "Drama", "Frank Darabont"),
+                new Movie("The Godfather", "Marlon Brando", "Crime Drama", "Francis Ford Coppola"),
+                new Movie("The Lord of the Rings: The Fellowship of the Ring", "Elijah Wood", "Adventure", "Peter Jackson"),
+                new Movie("The Lord of the Rings: Return of the King", "Elijah Wood", "Adventure", "Peter Jackson"),
+                new Movie("The Dark Knight", "Christian Bale", "Action", "Christopher Nolan")
+            };
+
+            string testTitle = "The Godfather";
+            string testActor = "Marlon Brando";
+            string testGenre = "Crime Drama";
+            string testDirector = "Francis Ford Coppala";
+
+            bool actual = Admin.AddMovie(testList, testTitle, testActor, testGenre, testDirector);
+
+            Assert.False(actual);
+        }
+
+        // UpdateMovie() tests
+
+        [Fact]
+        public void TestUpdateMovieTitle()
+        {
+            List<Movie> testList = new List<Movie>
+            {
+                new Movie("The Shawshank Redemption", "Tim Robbins", "Drama", "Frank Darabont"),
+                new Movie("The Godfather", "Marlon Brando", "Crime Drama", "Francis Ford Coppola"),
+                new Movie("The Lord of the Rings: The Fellowship of the Ring", "Elijah Wood", "Adventure", "Peter Jackson"),
+                new Movie("The Lord of the Rings: Return of the King", "Elijah Wood", "Adventure", "Peter Jackson"),
+                new Movie("The Dark Knight", "Christian Bale", "Action", "Christopher Nolan")
+            };
+
+            int index = 1;
+
+            Admin.UpdateMovie(testList, index, "title", "Shawshank Redemption");
+
+            Assert.Equal("Shawshank Redemption", testList[0].MovieTitle);
+        }
+
+        [Fact]
+        public void TestUpdateMovieActor()
+        {
+            List<Movie> testList = new List<Movie>
+            {
+                new Movie("The Shawshank Redemption", "Tim Robbins", "Drama", "Frank Darabont"),
+                new Movie("The Godfather", "Marlon Brando", "Crime Drama", "Francis Ford Coppola"),
+                new Movie("The Lord of the Rings: The Fellowship of the Ring", "Elijah Wood", "Adventure", "Peter Jackson"),
+                new Movie("The Lord of the Rings: Return of the King", "Elijah Wood", "Adventure", "Peter Jackson"),
+                new Movie("The Dark Knight", "Christian Bale", "Action", "Christopher Nolan")
+            };
+
+            int index = 1;
+
+            Admin.UpdateMovie(testList, index, "actor", "Morgan Freeman");
+
+            Assert.Equal("Morgan Freeman", testList[0].MainActor);
+        }
+
+        [Fact]
+        public void TestUpdateMovieGenre()
+        {
+            List<Movie> testList = new List<Movie>
+            {
+                new Movie("The Shawshank Redemption", "Tim Robbins", "Drama", "Frank Darabont"),
+                new Movie("The Godfather", "Marlon Brando", "Crime Drama", "Francis Ford Coppola"),
+                new Movie("The Lord of the Rings: The Fellowship of the Ring", "Elijah Wood", "Adventure", "Peter Jackson"),
+                new Movie("The Lord of the Rings: Return of the King", "Elijah Wood", "Adventure", "Peter Jackson"),
+                new Movie("The Dark Knight", "Christian Bale", "Action", "Christopher Nolan")
+            };
+
+            int index = 2;
+
+            Admin.UpdateMovie(testList, index, "genre", "Crime");
+
+            Assert.Equal("Crime", testList[1].Genre);
+        }
+
+        [Fact]
+        public void TestUpdateMovieDirector()
+        {
+            List<Movie> testList = new List<Movie>
+            {
+                new Movie("The Shawshank Redemption", "Tim Robbins", "Drama", "Francis Ford Coppola"),
+                new Movie("The Godfather", "Marlon Brando", "Crime Drama", "Francis Ford Coppola"),
+                new Movie("The Lord of the Rings: The Fellowship of the Ring", "Elijah Wood", "Adventure", "Peter Jackson"),
+                new Movie("The Lord of the Rings: Return of the King", "Elijah Wood", "Adventure", "Peter Jackson"),
+                new Movie("The Dark Knight", "Christian Bale", "Action", "Christopher Nolan")
+            };
+
+            int index = 2;
+
+            Admin.UpdateMovie(testList, index, "genre", "Frank Darabont");
+
+            Assert.Equal("Frank Darabont", testList[1].Genre);
+        }
+
+        // RemoveMovie() tests
+
+        [Fact]
+        public void TestRemoveMovie1()
+        {
+            List<Movie> testList = new List<Movie>
+            {
+                new Movie("The Shawshank Redemption", "Tim Robbins", "Drama", "Frank Darabont"),
+                new Movie("The Godfather", "Marlon Brando", "Crime Drama", "Francis Ford Coppola"),
+                new Movie("The Lord of the Rings: The Fellowship of the Ring", "Elijah Wood", "Adventure", "Peter Jackson"),
+                new Movie("The Lord of the Rings: Return of the King", "Elijah Wood", "Adventure", "Peter Jackson"),
+                new Movie("The Dark Knight", "Christian Bale", "Action", "Christopher Nolan")
+            };
+
+            //Passed in as the number on the list 
+            Admin.RemoveMovie(testList, 1);
+
+            Assert.Equal("The Godfather", testList[0].MovieTitle);
+        }
+
+        [Fact]
+        public void TestRemoveMovieIndex3()
+        {
+            List<Movie> testList = new List<Movie>
+            {
+                new Movie("The Shawshank Redemption", "Tim Robbins", "Drama", "Frank Darabont"),
+                new Movie("The Godfather", "Marlon Brando", "Crime Drama", "Francis Ford Coppola"),
+                new Movie("The Lord of the Rings: The Fellowship of the Ring", "Elijah Wood", "Adventure", "Peter Jackson"),
+                new Movie("The Lord of the Rings: Return of the King", "Elijah Wood", "Adventure", "Peter Jackson"),
+                new Movie("The Dark Knight", "Christian Bale", "Action", "Christopher Nolan")
+            };
+
+            //Passed in as the number on the list. 
+            Admin.RemoveMovie(testList, 3);
+
+            Assert.Equal("The Lord of the Rings: Return of the King", testList[2].MovieTitle);
+        }
+
     }
 
-    public class MovieRepo_Tests
-    {
-
-        [Fact]
-        public void TestMovieRepoMovieTitle()
-        {
-            List<Movie> expectedList = new List<Movie>
-            {
-                new Movie("The Shawshank Redemption", "Tim Robbins", "Drama", "Frank Darabont"),
-                new Movie("The Godfather", "Marlon Brando", "Crime Drama", "Francis Ford Coppola"),
-                new Movie("The Lord of the Rings: The Fellowship of the Ring", "Elijah Wood", "Adventure", "Peter Jackson"),
-                new Movie("The Lord of the Rings: Return of the King", "Elijah Wood", "Adventure", "Peter Jackson"),
-                new Movie("The Dark Knight", "Christian Bale", "Action", "Christopher Nolan")
-            };
-
-            List<Movie> actualList = MovieRepo.GetMovies();
-
-            Assert.Equal(expectedList[0].MovieTitle, actualList[0].MovieTitle);
-
-        }
-
-        [Fact]
-        public void TestMovieRepoActor()
-        {
-            List<Movie> expectedList = new List<Movie>
-            {
-                new Movie("The Shawshank Redemption", "Tim Robbins", "Drama", "Frank Darabont"),
-                new Movie("The Godfather", "Marlon Brando", "Crime Drama", "Francis Ford Coppola"),
-                new Movie("The Lord of the Rings: The Fellowship of the Ring", "Elijah Wood", "Adventure", "Peter Jackson"),
-                new Movie("The Lord of the Rings: Return of the King", "Elijah Wood", "Adventure", "Peter Jackson"),
-                new Movie("The Dark Knight", "Christian Bale", "Action", "Christopher Nolan")
-            };
-
-            List<Movie> actualList = MovieRepo.GetMovies();
-
-            Assert.Equal(expectedList[0].MainActor, actualList[0].MainActor);
-
-        }
-
-        [Fact]
-        public void TestMovieRepoGenre()
-        {
-            List<Movie> expectedList = new List<Movie>
-            {
-                new Movie("The Shawshank Redemption", "Tim Robbins", "Drama", "Frank Darabont"),
-                new Movie("The Godfather", "Marlon Brando", "Crime Drama", "Francis Ford Coppola"),
-                new Movie("The Lord of the Rings: The Fellowship of the Ring", "Elijah Wood", "Adventure", "Peter Jackson"),
-                new Movie("The Lord of the Rings: Return of the King", "Elijah Wood", "Adventure", "Peter Jackson"),
-                new Movie("The Dark Knight", "Christian Bale", "Action", "Christopher Nolan")
-            };
-
-            List<Movie> actualList = MovieRepo.GetMovies();
-
-            Assert.Equal(expectedList[0].Genre, actualList[0].Genre);
-
-        }
-
-        [Fact]
-        public void TestMovieRepoDirectors()
-        {
-            List<Movie> expectedList = new List<Movie>
-            {
-                new Movie("The Shawshank Redemption", "Tim Robbins", "Drama", "Frank Darabont"),
-                new Movie("The Godfather", "Marlon Brando", "Crime Drama", "Francis Ford Coppola"),
-                new Movie("The Lord of the Rings: The Fellowship of the Ring", "Elijah Wood", "Adventure", "Peter Jackson"),
-                new Movie("The Lord of the Rings: Return of the King", "Elijah Wood", "Adventure", "Peter Jackson"),
-                new Movie("The Dark Knight", "Christian Bale", "Action", "Christopher Nolan")
-            };
-
-            List<Movie> actualList = MovieRepo.GetMovies();
-
-            Assert.Equal(expectedList[0].Director, actualList[0].Director);
-
-        }
-
-        [Fact]
-        public void TestMovieRepoLastIndexDirectors()
-        {
-            List<Movie> expectedList = new List<Movie>
-            {
-                new Movie("The Shawshank Redemption", "Tim Robbins", "Drama", "Frank Darabont"),
-                new Movie("The Godfather", "Marlon Brando", "Crime Drama", "Francis Ford Coppola"),
-                new Movie("The Lord of the Rings: The Fellowship of the Ring", "Elijah Wood", "Adventure", "Peter Jackson"),
-                new Movie("The Lord of the Rings: Return of the King", "Elijah Wood", "Adventure", "Peter Jackson"),
-                new Movie("The Dark Knight", "Christian Bale", "Action", "Christopher Nolan")
-            };
-
-            List<Movie> actualList = MovieRepo.GetMovies();
-
-            Assert.Equal(expectedList[4].Director, actualList[4].Director);
-
-        }
-    }
 }

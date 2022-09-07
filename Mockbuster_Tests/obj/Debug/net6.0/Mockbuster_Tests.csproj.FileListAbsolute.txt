@@ -1,4 +1,9 @@
 C:\Users\Lwhite5\Desktop\Projects\Midterm_Mockbuster\Mockbuster_Tests\bin\Debug\net6.0\CoverletSourceRootsMapping
+C:\Users\Lwhite5\Desktop\Projects\Midterm_Mockbuster\Mockbuster_Tests\obj\Debug\net6.0\Mockbuster_Tests.csproj.AssemblyReference.cache
+C:\Users\Lwhite5\Desktop\Projects\Midterm_Mockbuster\Mockbuster_Tests\obj\Debug\net6.0\Mockbuster_Tests.GeneratedMSBuildEditorConfig.editorconfig
+C:\Users\Lwhite5\Desktop\Projects\Midterm_Mockbuster\Mockbuster_Tests\obj\Debug\net6.0\Mockbuster_Tests.AssemblyInfoInputs.cache
+C:\Users\Lwhite5\Desktop\Projects\Midterm_Mockbuster\Mockbuster_Tests\obj\Debug\net6.0\Mockbuster_Tests.AssemblyInfo.cs
+C:\Users\Lwhite5\Desktop\Projects\Midterm_Mockbuster\Mockbuster_Tests\obj\Debug\net6.0\Mockbuster_Tests.csproj.CoreCompileInputs.cache
 C:\Users\Lwhite5\Desktop\Projects\Midterm_Mockbuster\Mockbuster_Tests\bin\Debug\net6.0\testhost.dll
 C:\Users\Lwhite5\Desktop\Projects\Midterm_Mockbuster\Mockbuster_Tests\bin\Debug\net6.0\Mockbuster.deps.json
 C:\Users\Lwhite5\Desktop\Projects\Midterm_Mockbuster\Mockbuster_Tests\bin\Debug\net6.0\Mockbuster.runtimeconfig.json
@@ -92,11 +97,6 @@ C:\Users\Lwhite5\Desktop\Projects\Midterm_Mockbuster\Mockbuster_Tests\bin\Debug\
 C:\Users\Lwhite5\Desktop\Projects\Midterm_Mockbuster\Mockbuster_Tests\bin\Debug\net6.0\zh-Hant\Microsoft.VisualStudio.TestPlatform.Common.resources.dll
 C:\Users\Lwhite5\Desktop\Projects\Midterm_Mockbuster\Mockbuster_Tests\bin\Debug\net6.0\Mockbuster.dll
 C:\Users\Lwhite5\Desktop\Projects\Midterm_Mockbuster\Mockbuster_Tests\bin\Debug\net6.0\Mockbuster.pdb
-C:\Users\Lwhite5\Desktop\Projects\Midterm_Mockbuster\Mockbuster_Tests\obj\Debug\net6.0\Mockbuster_Tests.csproj.AssemblyReference.cache
-C:\Users\Lwhite5\Desktop\Projects\Midterm_Mockbuster\Mockbuster_Tests\obj\Debug\net6.0\Mockbuster_Tests.GeneratedMSBuildEditorConfig.editorconfig
-C:\Users\Lwhite5\Desktop\Projects\Midterm_Mockbuster\Mockbuster_Tests\obj\Debug\net6.0\Mockbuster_Tests.AssemblyInfoInputs.cache
-C:\Users\Lwhite5\Desktop\Projects\Midterm_Mockbuster\Mockbuster_Tests\obj\Debug\net6.0\Mockbuster_Tests.AssemblyInfo.cs
-C:\Users\Lwhite5\Desktop\Projects\Midterm_Mockbuster\Mockbuster_Tests\obj\Debug\net6.0\Mockbuster_Tests.csproj.CoreCompileInputs.cache
 C:\Users\Lwhite5\Desktop\Projects\Midterm_Mockbuster\Mockbuster_Tests\obj\Debug\net6.0\Mockbuster_Tests.csproj.CopyComplete
 C:\Users\Lwhite5\Desktop\Projects\Midterm_Mockbuster\Mockbuster_Tests\obj\Debug\net6.0\Mockbuster_Tests.dll
 C:\Users\Lwhite5\Desktop\Projects\Midterm_Mockbuster\Mockbuster_Tests\obj\Debug\net6.0\refint\Mockbuster_Tests.dll

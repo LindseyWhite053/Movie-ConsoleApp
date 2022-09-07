@@ -3,9 +3,9 @@ Microsoft Visual Studio Solution File, Format Version 12.00
 # Visual Studio Version 17
 VisualStudioVersion = 17.2.32630.192
 MinimumVisualStudioVersion = 10.0.40219.1
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mockbuster", "Mockbuster\Mockbuster.csproj", "{C118787F-C3FE-426E-9008-EADC382C5A9B}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mockbuster", "Mockbuster\Mockbuster.csproj", "{C118787F-C3FE-426E-9008-EADC382C5A9B}"
 EndProject
-Project("{FAE04EC0-301F-11D3-BF4B-00C04F79EFBC}") = "Mockbuster_Tests", "Mockbuster_Tests\Mockbuster_Tests.csproj", "{3ED0E327-24E6-467A-B4C0-B2A3DB5550D5}"
+Project("{9A19103F-16F7-4668-BE54-9A1E7A4F7556}") = "Mockbuster_Tests", "Mockbuster_Tests\Mockbuster_Tests.csproj", "{3ED0E327-24E6-467A-B4C0-B2A3DB5550D5}"
 EndProject
 Global
 	GlobalSection(SolutionConfigurationPlatforms) = preSolution
