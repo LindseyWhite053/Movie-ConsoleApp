@@ -25,29 +25,10 @@ namespace Mockbuster
         // Admin should have the ability to add, update, and delete movies from the repository. 
         public static bool AddMovie(List<Movie> thelist, string title, string mainActor, string genre, string director)
         {
-            
-            bool found = false;
 
-            foreach (Movie movie in thelist)
-            {
-                if (movie.MovieTitle == title)
-                {
-                    found = true;
-                }
-            }
-
-            if (found == true)
-            {
-                Console.WriteLine("That movie already exists");
-                return false;
-            } 
-            else
-            {
-                thelist.Add(new Movie(title, mainActor, genre, director));
-                Console.WriteLine($"Your movie has been added");
-                return true;
-            }
-
+            thelist.Add(new Movie(title, mainActor, genre, director));
+            Console.WriteLine($"Your movie has been added");
+            return true;
         }
 
         public static void DisplayAttributes(List<Movie> theList, int index)

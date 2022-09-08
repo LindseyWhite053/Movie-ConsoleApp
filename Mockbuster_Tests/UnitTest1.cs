@@ -375,27 +375,6 @@ namespace Mockbuster_Tests
             Assert.True(actual);
 
         }
-        [Fact]
-        public void TestAddMovieExisting()
-        {
-            List<Movie> testList = new List<Movie>
-            {
-                new Movie("The Shawshank Redemption", "Tim Robbins", "Drama", "Frank Darabont"),
-                new Movie("The Godfather", "Marlon Brando", "Crime Drama", "Francis Ford Coppola"),
-                new Movie("The Lord of the Rings: The Fellowship of the Ring", "Elijah Wood", "Adventure", "Peter Jackson"),
-                new Movie("The Lord of the Rings: Return of the King", "Elijah Wood", "Adventure", "Peter Jackson"),
-                new Movie("The Dark Knight", "Christian Bale", "Action", "Christopher Nolan")
-            };
-
-            string testTitle = "The Godfather";
-            string testActor = "Marlon Brando";
-            string testGenre = "Crime Drama";
-            string testDirector = "Francis Ford Coppala";
-
-            bool actual = Admin.AddMovie(testList, testTitle, testActor, testGenre, testDirector);
-
-            Assert.False(actual);
-        }
 
         // UpdateMovie() tests
 
