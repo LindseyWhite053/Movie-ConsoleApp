@@ -10,7 +10,7 @@ namespace Mockbuster
     {
         public static void ViewMenu()
         {
-            Console.WriteLine("User Menu");
+            Console.WriteLine("Administrator Menu");
             Console.WriteLine("(1) View All Movies");
             Console.WriteLine("(2) Find a movie by title.");
             Console.WriteLine("(3) Find a movie by genre.");
