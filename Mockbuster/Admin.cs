@@ -10,15 +10,34 @@ namespace Mockbuster
     {
         public static void ViewMenu()
         {
-            Console.WriteLine("Administrator Menu");
-            Console.WriteLine("(1) View All Movies");
+            Console.WriteLine();
+            string adminMenuLine1 = "╔════════════════════════════════╗	";
+            string adminMenuLine2 = "║	   Administrator Menu      ║	";
+            string adminMenuLine3 = "╚════════════════════════════════╝	";
+            Console.SetCursorPosition((Console.WindowWidth - adminMenuLine1.Length) / 2, Console.CursorTop);
+            Console.WriteLine(adminMenuLine1);
+            Console.SetCursorPosition((Console.WindowWidth - adminMenuLine1.Length) / 2, Console.CursorTop);
+            Console.WriteLine(adminMenuLine2);
+            Console.SetCursorPosition((Console.WindowWidth - adminMenuLine1.Length) / 2, Console.CursorTop);
+            Console.WriteLine(adminMenuLine3);
+
+            Console.SetCursorPosition((Console.WindowWidth - adminMenuLine1.Length) / 2, Console.CursorTop);
+            Console.WriteLine("(1) View all movies.");
+            Console.SetCursorPosition((Console.WindowWidth - adminMenuLine1.Length) / 2, Console.CursorTop);
             Console.WriteLine("(2) Find a movie by title.");
+            Console.SetCursorPosition((Console.WindowWidth - adminMenuLine1.Length) / 2, Console.CursorTop);
             Console.WriteLine("(3) Find a movie by genre.");
+            Console.SetCursorPosition((Console.WindowWidth - adminMenuLine1.Length) / 2, Console.CursorTop);
             Console.WriteLine("(4) Find a movie by lead actor/actress.");
+            Console.SetCursorPosition((Console.WindowWidth - adminMenuLine1.Length) / 2, Console.CursorTop);
             Console.WriteLine("(5) Find a movie by director.");
+            Console.SetCursorPosition((Console.WindowWidth - adminMenuLine1.Length) / 2, Console.CursorTop);
             Console.WriteLine("(6) Add a movie.");
+            Console.SetCursorPosition((Console.WindowWidth - adminMenuLine1.Length) / 2, Console.CursorTop);
             Console.WriteLine("(7) Edit an existing movie.");
+            Console.SetCursorPosition((Console.WindowWidth - adminMenuLine1.Length) / 2, Console.CursorTop);
             Console.WriteLine("(8) Remove an existing movie.");
+            Console.SetCursorPosition((Console.WindowWidth - adminMenuLine1.Length) / 2, Console.CursorTop);
 
         }
 

@@ -2,7 +2,7 @@
 
 List<Movie> Movies = MovieRepo.GetMovies();
 
-Console.WriteLine("Welcome to MockBuster!");
+WelcomeMessage();
 
 Console.Write("Are you a \"user\" or an \"administrator\"? ");
 string userType = Console.ReadLine().ToLower().Trim();
@@ -450,6 +450,22 @@ static string YesNo(string input)
     return yesNo;
 }
 
+
+//=============================Program Methods=====================================
+
+static void WelcomeMessage()
+{
+    string welcomeLine1 = "╔════════════════════════════════╗	";
+    string welcomeLine2 = "║	 Welcome to MockBuster!    ║	";
+    string welcomeLine3 = "╚════════════════════════════════╝	";
+    Console.SetCursorPosition((Console.WindowWidth - welcomeLine1.Length) / 2, Console.CursorTop);
+    Console.WriteLine(welcomeLine1);
+    Console.SetCursorPosition((Console.WindowWidth - welcomeLine1.Length) / 2, Console.CursorTop);
+    Console.WriteLine(welcomeLine2);
+    Console.SetCursorPosition((Console.WindowWidth - welcomeLine1.Length) / 2, Console.CursorTop);
+    Console.WriteLine(welcomeLine3);
+}
+
 //Only pass in input validated first with YesNo() method above. 
 static bool GoAgain(string input)
 {
@@ -461,3 +477,4 @@ static bool GoAgain(string input)
         return false;
     }
 }
+

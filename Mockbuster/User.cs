@@ -21,11 +21,26 @@ namespace Mockbuster
 
         public static void ViewMenu()
         {
-            Console.WriteLine("User Menu");
-            Console.WriteLine("(1) View All Movies");
+            Console.WriteLine();
+            string userMenuLine1 = "╔════════════════════════════════╗	";
+            string userMenuLine2 = "║	       User Menu           ║	";
+            string userMenuLine3 = "╚════════════════════════════════╝	";
+            Console.SetCursorPosition((Console.WindowWidth - userMenuLine1.Length) / 2, Console.CursorTop);
+            Console.WriteLine(userMenuLine1);
+            Console.SetCursorPosition((Console.WindowWidth - userMenuLine1.Length) / 2, Console.CursorTop);
+            Console.WriteLine(userMenuLine2);
+            Console.SetCursorPosition((Console.WindowWidth - userMenuLine1.Length) / 2, Console.CursorTop);
+            Console.WriteLine(userMenuLine3);
+
+            Console.SetCursorPosition((Console.WindowWidth - userMenuLine1.Length) / 2, Console.CursorTop);
+            Console.WriteLine("(1) View all movies.");
+            Console.SetCursorPosition((Console.WindowWidth - userMenuLine1.Length) / 2, Console.CursorTop);
             Console.WriteLine("(2) Find a movie by title.");
+            Console.SetCursorPosition((Console.WindowWidth - userMenuLine1.Length) / 2, Console.CursorTop);
             Console.WriteLine("(3) Find a movie by genre.");
+            Console.SetCursorPosition((Console.WindowWidth - userMenuLine1.Length) / 2, Console.CursorTop);
             Console.WriteLine("(4) Find a movie by lead actor/actress.");
+            Console.SetCursorPosition((Console.WindowWidth - userMenuLine1.Length) / 2, Console.CursorTop);
             Console.WriteLine("(5) Find a movie by director.");
 
         }
