@@ -6,7 +6,7 @@ namespace Mockbuster_Tests
     {
 
         [Fact]
-        public void TestMovieRepoMovieTitle()
+        public void TestMovieRepoMovieTitle1()
         {
             List<Movie> expectedList = new List<Movie>
             {
@@ -19,12 +19,15 @@ namespace Mockbuster_Tests
 
             List<Movie> actualList = MovieRepo.GetMovies();
 
-            Assert.Equal(expectedList[0].MovieTitle, actualList[0].MovieTitle);
+            Assert.Contains<Movie>(actualList, item =>
+                {
+                    return item.MovieTitle == "The Shawshank Redemption";
+                });
 
         }
 
         [Fact]
-        public void TestMovieRepoActor()
+        public void TestMovieRepoMovieTitle2()
         {
             List<Movie> expectedList = new List<Movie>
             {
@@ -37,7 +40,31 @@ namespace Mockbuster_Tests
 
             List<Movie> actualList = MovieRepo.GetMovies();
 
-            Assert.Equal(expectedList[0].MainActor, actualList[0].MainActor);
+            Assert.Contains<Movie>(actualList, item =>
+            {
+                return item.MovieTitle == "The Dark Knight";
+            });
+
+        }
+
+        [Fact]
+        public void TestMovieRepoMainActor()
+        {
+            List<Movie> expectedList = new List<Movie>
+            {
+                new Movie("The Shawshank Redemption", "Tim Robbins", "Drama", "Frank Darabont"),
+                new Movie("The Godfather", "Marlon Brando", "Crime Drama", "Francis Ford Coppola"),
+                new Movie("The Lord of the Rings: The Fellowship of the Ring", "Elijah Wood", "Adventure", "Peter Jackson"),
+                new Movie("The Lord of the Rings: Return of the King", "Elijah Wood", "Adventure", "Peter Jackson"),
+                new Movie("The Dark Knight", "Christian Bale", "Action", "Christopher Nolan")
+            };
+
+            List<Movie> actualList = MovieRepo.GetMovies();
+
+            Assert.Contains<Movie>(actualList, item =>
+            {
+                return item.MainActor == "Marlon Brando";
+            });
 
         }
 
@@ -55,12 +82,15 @@ namespace Mockbuster_Tests
 
             List<Movie> actualList = MovieRepo.GetMovies();
 
-            Assert.Equal(expectedList[0].Genre, actualList[0].Genre);
+            Assert.Contains<Movie>(actualList, item =>
+            {
+                return item.Genre == "Adventure";
+            });
 
         }
 
         [Fact]
-        public void TestMovieRepoDirectors()
+        public void TestMovieRepoDirector()
         {
             List<Movie> expectedList = new List<Movie>
             {
@@ -73,25 +103,10 @@ namespace Mockbuster_Tests
 
             List<Movie> actualList = MovieRepo.GetMovies();
 
-            Assert.Equal(expectedList[0].Director, actualList[0].Director);
-
-        }
-
-        [Fact]
-        public void TestMovieRepoLastIndexDirectors()
-        {
-            List<Movie> expectedList = new List<Movie>
+            Assert.Contains<Movie>(actualList, item =>
             {
-                new Movie("The Shawshank Redemption", "Tim Robbins", "Drama", "Frank Darabont"),
-                new Movie("The Godfather", "Marlon Brando", "Crime Drama", "Francis Ford Coppola"),
-                new Movie("The Lord of the Rings: The Fellowship of the Ring", "Elijah Wood", "Adventure", "Peter Jackson"),
-                new Movie("The Lord of the Rings: Return of the King", "Elijah Wood", "Adventure", "Peter Jackson"),
-                new Movie("The Dark Knight", "Christian Bale", "Action", "Christopher Nolan")
-            };
-
-            List<Movie> actualList = MovieRepo.GetMovies();
-
-            Assert.Equal(expectedList[4].Director, actualList[4].Director);
+                return item.Director == "Peter Jackson";
+            });
 
         }
     }
@@ -459,7 +474,7 @@ namespace Mockbuster_Tests
         [Fact]
         public void TestRemoveMovie0()
         {
-            List<Movie> testList = new List<Movie>
+            List<Movie> actualList = new List<Movie>
             {
                 new Movie("The Shawshank Redemption", "Tim Robbins", "Drama", "Frank Darabont"),
                 new Movie("The Godfather", "Marlon Brando", "Crime Drama", "Francis Ford Coppola"),
@@ -468,16 +483,18 @@ namespace Mockbuster_Tests
                 new Movie("The Dark Knight", "Christian Bale", "Action", "Christopher Nolan")
             };
 
-            //Passed in as the number on the list 
-            Admin.RemoveMovie(testList, 0);
+            Admin.RemoveMovie(actualList, 0);
 
-            Assert.Equal("The Godfather", testList[0].MovieTitle);
+            Assert.DoesNotContain<Movie>(actualList, item =>
+            {
+                return item.MovieTitle == "The Shawshank Redemption";
+            });
         }
 
         [Fact]
         public void TestRemoveMovieIndex3()
         {
-            List<Movie> testList = new List<Movie>
+            List<Movie> actualList = new List<Movie>
             {
                 new Movie("The Shawshank Redemption", "Tim Robbins", "Drama", "Frank Darabont"),
                 new Movie("The Godfather", "Marlon Brando", "Crime Drama", "Francis Ford Coppola"),
@@ -487,9 +504,12 @@ namespace Mockbuster_Tests
             };
 
             //Passed in as the number on the list. 
-            Admin.RemoveMovie(testList, 3);
+            Admin.RemoveMovie(actualList, 3);
 
-            Assert.Equal("The Dark Knight", testList[3].MovieTitle);
+            Assert.DoesNotContain<Movie>(actualList, item =>
+            {
+                return item.MovieTitle == "The Lord of the Rings: Return of the King";
+            });
         }
 
     }
