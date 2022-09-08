@@ -423,6 +423,24 @@ while (keepGoing == true)
     Console.WriteLine();
 }
 
+
+
+//=============================Program Methods=====================================
+
+static void WelcomeMessage()
+{
+    string welcomeLine1 = "╔════════════════════════════════╗	";
+    string welcomeLine2 = "║	 Welcome to MockBuster!    ║	";
+    string welcomeLine3 = "╚════════════════════════════════╝	";
+    Console.SetCursorPosition((Console.WindowWidth - welcomeLine1.Length) / 2, Console.CursorTop);
+    Console.WriteLine(welcomeLine1);
+    Console.SetCursorPosition((Console.WindowWidth - welcomeLine1.Length) / 2, Console.CursorTop);
+    Console.WriteLine(welcomeLine2);
+    Console.SetCursorPosition((Console.WindowWidth - welcomeLine1.Length) / 2, Console.CursorTop);
+    Console.WriteLine(welcomeLine3);
+}
+
+
 static string YesNo(string input)
 {
     string yesNo;
@@ -448,22 +466,6 @@ static string YesNo(string input)
     }
 
     return yesNo;
-}
-
-
-//=============================Program Methods=====================================
-
-static void WelcomeMessage()
-{
-    string welcomeLine1 = "╔════════════════════════════════╗	";
-    string welcomeLine2 = "║	 Welcome to MockBuster!    ║	";
-    string welcomeLine3 = "╚════════════════════════════════╝	";
-    Console.SetCursorPosition((Console.WindowWidth - welcomeLine1.Length) / 2, Console.CursorTop);
-    Console.WriteLine(welcomeLine1);
-    Console.SetCursorPosition((Console.WindowWidth - welcomeLine1.Length) / 2, Console.CursorTop);
-    Console.WriteLine(welcomeLine2);
-    Console.SetCursorPosition((Console.WindowWidth - welcomeLine1.Length) / 2, Console.CursorTop);
-    Console.WriteLine(welcomeLine3);
 }
 
 //Only pass in input validated first with YesNo() method above. 
