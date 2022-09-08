@@ -390,7 +390,7 @@ while (keepGoing == true)
 
                     if (yesNo == "yes")
                     {
-                        Admin.RemoveMovie(Movies, num);
+                        Admin.RemoveMovie(Movies, index);
                     }
                     else if (yesNo == "no")
                     {
