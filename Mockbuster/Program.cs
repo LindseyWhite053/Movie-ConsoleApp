@@ -76,35 +76,35 @@ while (keepGoing == true)
             Console.Write("\nWould you like to view additional information about a movie(y/n): ");
             yesNo = YesNo(Console.ReadLine().ToLower().Trim());
 
-            do {  
                 if (yesNo == "yes")
                 {
 
-                    Console.Write("\nWhich movie would you like more information on(select by number): ");
+                    do {  
+                        Console.Write("\nWhich movie would you like more information on(select by number): ");
 
-                    while (true)
-                    {
-                        int.TryParse(Console.ReadLine().Trim(), out num);
-
-                        if ((num > 0) && (num <= Movies.Count))
+                        while (true)
                         {
-                            break;
-                        }
-                        else
-                        {
-                            Console.Write("Please enter a valid selection: ");
-                        }
-                    }
+                            int.TryParse(Console.ReadLine().Trim(), out num);
 
-                    Movies[num - 1].ViewInfo();
+                            if ((num > 0) && (num <= Movies.Count))
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                Console.Write("Please enter a valid selection: ");
+                            }
+                        }
 
+                        Movies[num - 1].ViewInfo();
+
+                        Console.Write("\nWould you like information on another movie(y/n): ");
+
+                        yesNo = YesNo(Console.ReadLine().ToLower().Trim());
+
+                    } while (GoAgain(yesNo));
                 }
 
-                Console.Write("\nWould you like information on another movie(y/n): ");
-
-                yesNo = YesNo(Console.ReadLine().ToLower().Trim());
-
-            } while (GoAgain(yesNo));
             break;
 
         case 2:
@@ -684,8 +684,7 @@ while (keepGoing == true)
         Console.WriteLine("Goodbye!");
         keepGoing = false;
     }
-     
-    Console.WriteLine();
+
 }
 
 

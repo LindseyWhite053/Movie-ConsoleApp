@@ -10,7 +10,8 @@ namespace Mockbuster
     {
         public static void ViewMenu()
         {
-            Console.WriteLine();
+            Console.Clear();
+
             string adminMenuLine1 = "╔════════════════════════════════╗	";
             string adminMenuLine2 = "║	   Administrator Menu      ║	";
             string adminMenuLine3 = "╚════════════════════════════════╝	";
