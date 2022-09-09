@@ -64,6 +64,27 @@ namespace Mockbuster
             }
         }
 
+        public static void ViewMovieFromList(List<Movie> list)
+        {
+            Console.Write("\nWhich movie would you like more information on(select by number): ");
+            int num;
+            while (true)
+            {
+                int.TryParse(Console.ReadLine().Trim(), out num);
+
+                if ((num > 0) && (num <= list.Count))
+                {
+                    break;
+                }
+                else
+                {
+                    Console.Write("Please enter a valid selection: ");
+                }
+            }
+
+            list[num - 1].ViewInfo();
+        }
+
         // Include an overriden ToString to include a formatted string of: Movie Name, Main Actor, Genre, and Director
         public override string ToString()
         {

@@ -2,7 +2,7 @@
 
 List<Movie> Movies = MovieRepo.GetMovies();
 
-WelcomeMessage();
+MainLibrary.WelcomeMessage();
 
 Console.Write("Are you a \"user\" or an \"administrator\"? ");
 string userType = Console.ReadLine().ToLower().Trim();
@@ -74,35 +74,19 @@ while (keepGoing == true)
 
             // Ask the user if they would like to view additional information about the movie
             Console.Write("\nWould you like to view additional information about a movie(y/n): ");
-            yesNo = YesNo(Console.ReadLine().ToLower().Trim());
+            yesNo = MainLibrary.YesNo(Console.ReadLine().ToLower().Trim());
 
                 if (yesNo == "yes")
                 {
 
-                    do {  
-                        Console.Write("\nWhich movie would you like more information on(select by number): ");
-
-                        while (true)
-                        {
-                            int.TryParse(Console.ReadLine().Trim(), out num);
-
-                            if ((num > 0) && (num <= Movies.Count))
-                            {
-                                break;
-                            }
-                            else
-                            {
-                                Console.Write("Please enter a valid selection: ");
-                            }
-                        }
-
-                        Movies[num - 1].ViewInfo();
+                    do {
+                        Movie.ViewMovieFromList(Movies);    
 
                         Console.Write("\nWould you like information on another movie(y/n): ");
 
-                        yesNo = YesNo(Console.ReadLine().ToLower().Trim());
+                        yesNo = MainLibrary.YesNo(Console.ReadLine().ToLower().Trim());
 
-                    } while (GoAgain(yesNo));
+                    } while (MainLibrary.GoAgain(yesNo));
                 }
 
             break;
@@ -122,30 +106,12 @@ while (keepGoing == true)
 
                     // Ask the user if they would like to view additional information about the movie
                     Console.Write("\nWould you like to view additional information about a movie(y/n): ");
-                    yesNo = YesNo(Console.ReadLine().ToLower().Trim());
+                    yesNo = MainLibrary.YesNo(Console.ReadLine().ToLower().Trim());
 
 
-                        if (yesNo == "yes")
-                        {
-
-                            Console.Write("\nWhich movie would you like more information on(select by number): ");
-
-                            while (true)
-                            {
-                                int.TryParse(Console.ReadLine().Trim(), out num);
-
-                                if ((num > 0) && (num <= newList.Count))
-                                {
-                                    break;
-                                }
-                                else
-                                {
-                                    Console.Write("Please enter a valid selection: ");
-                                }
-                            }
-
-                            newList[num - 1].ViewInfo();
-
+                    if (yesNo == "yes")
+                    {
+                        Movie.ViewMovieFromList(newList);
                     }
                 }
                 else
@@ -155,9 +121,9 @@ while (keepGoing == true)
 
                 Console.Write("\nWould you like to find another movie by title(y/n): ");
 
-                yesNo = YesNo(Console.ReadLine().ToLower().Trim());
+                yesNo = MainLibrary.YesNo(Console.ReadLine().ToLower().Trim());
 
-            } while (GoAgain(yesNo));           
+            } while (MainLibrary.GoAgain(yesNo));           
             break;
 
         case 3:
@@ -174,29 +140,13 @@ while (keepGoing == true)
 
                     // Ask the user if they would like to view additional information about the movie
                     Console.Write("\nWould you like to view additional information about a movie(y/n): ");
-                    yesNo = YesNo(Console.ReadLine().ToLower().Trim());
+                    yesNo = MainLibrary.YesNo(Console.ReadLine().ToLower().Trim());
 
 
                     if (yesNo == "yes")
                     {
 
-                        Console.Write("\nWhich movie would you like more information on(select by number): ");
-
-                        while (true)
-                        {
-                            int.TryParse(Console.ReadLine().Trim(), out num);
-
-                            if ((num > 0) && (num <= newList.Count))
-                            {
-                                break;
-                            }
-                            else
-                            {
-                                Console.Write("Please enter a valid selection: ");
-                            }
-                        }
-
-                        newList[num - 1].ViewInfo();
+                        Movie.ViewMovieFromList(newList);
 
                     }
                 }
@@ -207,9 +157,9 @@ while (keepGoing == true)
 
                 Console.Write("\nWould you like to find another movie by genre(y/n): ");
 
-                yesNo = YesNo(Console.ReadLine().ToLower().Trim());
+                yesNo = MainLibrary.YesNo(Console.ReadLine().ToLower().Trim());
 
-            } while (GoAgain(yesNo));
+            } while (MainLibrary.GoAgain(yesNo));
             break;
 
         case 4:
@@ -226,29 +176,13 @@ while (keepGoing == true)
 
                     // Ask the user if they would like to view additional information about the movie
                     Console.Write("\nWould you like to view additional information about a movie(y/n): ");
-                    yesNo = YesNo(Console.ReadLine().ToLower().Trim());
+                    yesNo = MainLibrary.YesNo(Console.ReadLine().ToLower().Trim());
 
 
                     if (yesNo == "yes")
                     {
 
-                        Console.Write("\nWhich movie would you like more information on(select by number): ");
-
-                        while (true)
-                        {
-                            int.TryParse(Console.ReadLine().Trim(), out num);
-
-                            if ((num > 0) && (num <= newList.Count))
-                            {
-                                break;
-                            }
-                            else
-                            {
-                                Console.Write("Please enter a valid selection: ");
-                            }
-                        }
-
-                        newList[num - 1].ViewInfo();
+                        Movie.ViewMovieFromList(newList);
 
                     }
                 }
@@ -260,9 +194,9 @@ while (keepGoing == true)
 
                 Console.Write("\nWould you like to find another movie by lead actor/actress(y/n): ");
 
-                yesNo = YesNo(Console.ReadLine().ToLower().Trim());
+                yesNo = MainLibrary.YesNo(Console.ReadLine().ToLower().Trim());
 
-            } while (GoAgain(yesNo));
+            } while (MainLibrary.GoAgain(yesNo));
 
             break;
 
@@ -280,29 +214,13 @@ while (keepGoing == true)
 
                     // Ask the user if they would like to view additional information about the movie
                     Console.Write("\nWould you like to view additional information about a movie(y/n): ");
-                    yesNo = YesNo(Console.ReadLine().ToLower().Trim());
+                    yesNo = MainLibrary.YesNo(Console.ReadLine().ToLower().Trim());
 
 
                     if (yesNo == "yes")
                     {
 
-                        Console.Write("\nWhich movie would you like more information on(select by number): ");
-
-                        while (true)
-                        {
-                            int.TryParse(Console.ReadLine().Trim(), out num);
-
-                            if ((num > 0) && (num <= newList.Count))
-                            {
-                                break;
-                            }
-                            else
-                            {
-                                Console.Write("Please enter a valid selection: ");
-                            }
-                        }
-
-                        newList[num - 1].ViewInfo();
+                        Movie.ViewMovieFromList(newList);
                     }
                 }
                 else
@@ -312,9 +230,9 @@ while (keepGoing == true)
 
                 Console.Write("\nWould you like to find another movie by director(y/n): ");
 
-                yesNo = YesNo(Console.ReadLine().ToLower().Trim());
+                yesNo = MainLibrary.YesNo(Console.ReadLine().ToLower().Trim());
 
-            } while (GoAgain(yesNo));
+            } while (MainLibrary.GoAgain(yesNo));
             break;
 
         case 6:
@@ -337,7 +255,7 @@ while (keepGoing == true)
                     Console.WriteLine("\nDoes this list include the movie you are trying to add(y/n): ");
                     string answer = Console.ReadLine().ToLower().Trim();
 
-                    answer = YesNo(answer);
+                    answer = MainLibrary.YesNo(answer);
 
                     if (answer == "yes")
                     {
@@ -365,7 +283,7 @@ while (keepGoing == true)
 
                     // Prompt the user to add additional information to the movie
                     Console.Write("Would you like to add additional information such as the year released, rating, run time, and description at this time?\n(y/n): ");
-                    yesNo = YesNo(Console.ReadLine().ToLower().Trim());
+                    yesNo = MainLibrary.YesNo(Console.ReadLine().ToLower().Trim());
 
                     Movie newMovie;
                     if (yesNo == "yes")
@@ -423,7 +341,7 @@ while (keepGoing == true)
                         Console.Write($"\nWould you like to add {newMovie} to the movie list(y/n)? ");
                     }
                 
-                    yesNo = YesNo(Console.ReadLine().ToLower().Trim());
+                    yesNo = MainLibrary.YesNo(Console.ReadLine().ToLower().Trim());
 
 
                     if (yesNo == "yes")
@@ -438,9 +356,9 @@ while (keepGoing == true)
 
                 Console.Write("\nWould you like to add another movie(y/n): ");
 
-                yesNo = YesNo(Console.ReadLine().ToLower().Trim());
+                yesNo = MainLibrary.YesNo(Console.ReadLine().ToLower().Trim());
 
-            } while (GoAgain(yesNo));
+            } while (MainLibrary.GoAgain(yesNo));
             break;
 
         case 7:
@@ -475,7 +393,7 @@ while (keepGoing == true)
                     Console.WriteLine($"\nYou have selected:");
                     newList[num - 1].ViewInfo();
                     Console.Write("\nWould you like to continue with editing(y/n): ");
-                    yesNo = YesNo(Console.ReadLine().ToLower().Trim());
+                    yesNo = MainLibrary.YesNo(Console.ReadLine().ToLower().Trim());
 
                     if (yesNo == "yes")
                     {
@@ -587,7 +505,7 @@ while (keepGoing == true)
                         }
 
                         Console.Write("\nWould you like to continue with this update(y/n): ");
-                        yesNo = YesNo(Console.ReadLine().ToLower().Trim());
+                        yesNo = MainLibrary.YesNo(Console.ReadLine().ToLower().Trim());
 
                         if (yesNo == "yes")
                         {
@@ -611,9 +529,9 @@ while (keepGoing == true)
 
                 Console.Write("\nWould you like to edit another movie(y/n): ");
 
-                yesNo = YesNo(Console.ReadLine().ToLower().Trim());
+                yesNo = MainLibrary.YesNo(Console.ReadLine().ToLower().Trim());
 
-            } while (GoAgain(yesNo));
+            } while (MainLibrary.GoAgain(yesNo));
             break;
 
         case 8:
@@ -650,7 +568,7 @@ while (keepGoing == true)
 
                     Console.WriteLine($"You have selected \"{Movies[index]}\".");
                     Console.Write("\nWould you like to continue removing this movie(y/n): ");
-                    yesNo = YesNo(Console.ReadLine().Trim());
+                    yesNo = MainLibrary.YesNo(Console.ReadLine().Trim());
 
 
                     if (yesNo == "yes")
@@ -669,15 +587,15 @@ while (keepGoing == true)
                 }
                 Console.Write("\nWould you like to remove another movie(y/n): ");
 
-                yesNo = YesNo(Console.ReadLine().ToLower().Trim());
+                yesNo = MainLibrary.YesNo(Console.ReadLine().ToLower().Trim());
 
-            } while (GoAgain(yesNo));
+            } while (MainLibrary.GoAgain(yesNo));
             break;
     
     }
 
     Console.Write("\nWould you like to return to the main menu (y/n): ");
-    input = YesNo(Console.ReadLine().ToLower().Trim());
+    input = MainLibrary.YesNo(Console.ReadLine().ToLower().Trim());
 
     if (input == "no")
     {
@@ -689,58 +607,4 @@ while (keepGoing == true)
 
 
 
-//=============================Program Methods=====================================
-
-static void WelcomeMessage()
-{
-    string welcomeLine1 = "╔════════════════════════════════╗	";
-    string welcomeLine2 = "║	 Welcome to MockBuster!    ║	";
-    string welcomeLine3 = "╚════════════════════════════════╝	";
-    Console.SetCursorPosition((Console.WindowWidth - welcomeLine1.Length) / 2, Console.CursorTop);
-    Console.WriteLine(welcomeLine1);
-    Console.SetCursorPosition((Console.WindowWidth - welcomeLine1.Length) / 2, Console.CursorTop);
-    Console.WriteLine(welcomeLine2);
-    Console.SetCursorPosition((Console.WindowWidth - welcomeLine1.Length) / 2, Console.CursorTop);
-    Console.WriteLine(welcomeLine3);
-}
-
-
-static string YesNo(string input)
-{
-    string yesNo;
-    while (true)
-    {
-
-        if (input == "y" || input == "yes")
-        {
-            yesNo = "yes";
-            break;
-        }
-        else if (input == "n" || input == "no")
-        {
-            yesNo = "no";
-            break;
-        }
-        else
-        {
-            Console.Write("Please enter \"yes\" or \"no\": ");
-            input = Console.ReadLine().ToLower().Trim();
-        }
-
-    }
-
-    return yesNo;
-}
-
-//Only pass in input validated first with YesNo() method above. 
-static bool GoAgain(string input)
-{
-   if (input == "yes")
-    {
-        return true;
-    }
-    else{
-        return false;
-    }
-}
 
