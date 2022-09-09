@@ -144,7 +144,7 @@ while (keepGoing == true)
                                 }
                             }
 
-                            Movies[num - 1].ViewInfo();
+                            newList[num - 1].ViewInfo();
 
                     }
                 }
@@ -196,7 +196,7 @@ while (keepGoing == true)
                             }
                         }
 
-                        Movies[num - 1].ViewInfo();
+                        newList[num - 1].ViewInfo();
 
                     }
                 }
@@ -248,7 +248,7 @@ while (keepGoing == true)
                             }
                         }
 
-                        Movies[num - 1].ViewInfo();
+                        newList[num - 1].ViewInfo();
 
                     }
                 }
@@ -302,7 +302,7 @@ while (keepGoing == true)
                             }
                         }
 
-                        Movies[num - 1].ViewInfo();
+                        newList[num - 1].ViewInfo();
                     }
                 }
                 else
