@@ -469,6 +469,121 @@ namespace Mockbuster_Tests
             Assert.Equal("Frank Darabont", testList[1].Genre);
         }
 
+        [Fact]
+        public void TestUpdateMovieYear()
+        {
+            List<Movie> testList = new List<Movie>
+            {
+               new Movie("The Shawshank Redemption", "Tim Robbins", "Drama", "Frank Darabont", 1994, "R", 142, "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency."),
+                new Movie("The Godfather", "Marlon Brando", "Crime Drama", "Francis Ford Coppola", 2001, "R", 175, "The aging patriarch of an organized crime dynasty in postwar New York City transfers control of his clandestine empire to his reluctant youngest son."),
+                new Movie("The Lord of the Rings: The Fellowship of the Ring", "Elijah Wood", "Adventure", "Peter Jackson", 2001, "PG-13", 178, "A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron."),
+                new Movie("The Lord of the Rings: Return of the King", "Elijah Wood", "Adventure", "Peter Jackson", 2003, "PG-13", 201, "Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring."),
+                new Movie("The Dark Knight", "Christian Bale", "Action", "Christopher Nolan", 2008, "PG-13", 152, "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.")
+            };
+
+            int index = 2;
+
+            Admin.UpdateMovie(testList, index, "year", "", 1972, 0);
+
+            Assert.Equal(1972, testList[1].Year);
+        }
+
+        [Fact]
+        public void TestUpdateMovieRating()
+        {
+            List<Movie> testList = new List<Movie>
+            {
+               new Movie("The Shawshank Redemption", "Tim Robbins", "Drama", "Frank Darabont", 1994, "R", 142, "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency."),
+                new Movie("The Godfather", "Marlon Brando", "Crime Drama", "Francis Ford Coppola", 2001, "PG-13", 175, "The aging patriarch of an organized crime dynasty in postwar New York City transfers control of his clandestine empire to his reluctant youngest son."),
+                new Movie("The Lord of the Rings: The Fellowship of the Ring", "Elijah Wood", "Adventure", "Peter Jackson", 2001, "PG-13", 178, "A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron."),
+                new Movie("The Lord of the Rings: Return of the King", "Elijah Wood", "Adventure", "Peter Jackson", 2003, "PG-13", 201, "Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring."),
+                new Movie("The Dark Knight", "Christian Bale", "Action", "Christopher Nolan", 2008, "PG-13", 152, "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.")
+            };
+
+            int index = 2;
+
+            Admin.UpdateMovie(testList, index, "rating", "R", 0, 0);
+
+            Assert.Equal("R", testList[1].Rating);
+        }
+
+        [Fact]
+        public void TestUpdateMovieRunTime()
+        {
+            List<Movie> testList = new List<Movie>
+            {
+               new Movie("The Shawshank Redemption", "Tim Robbins", "Drama", "Frank Darabont", 1994, "R", 142, "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency."),
+                new Movie("The Godfather", "Marlon Brando", "Crime Drama", "Francis Ford Coppola", 2001, "PG-13", 175, "The aging patriarch of an organized crime dynasty in postwar New York City transfers control of his clandestine empire to his reluctant youngest son."),
+                new Movie("The Lord of the Rings: The Fellowship of the Ring", "Elijah Wood", "Adventure", "Peter Jackson", 2001, "PG-13", 178, "A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron."),
+                new Movie("The Lord of the Rings: Return of the King", "Elijah Wood", "Adventure", "Peter Jackson", 2003, "PG-13", 201, "Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring."),
+                new Movie("The Dark Knight", "Christian Bale", "Action", "Christopher Nolan", 2008, "PG-13", 152, "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.")
+            };
+
+            int index = 2;
+
+            Admin.UpdateMovie(testList, index, "run time", "", 0, 200);
+
+            Assert.Equal(200, testList[1].RunTime);
+        }
+
+        [Fact]
+        public void TestUpdateMovieRunTime2()
+        {
+            List<Movie> testList = new List<Movie>
+            {
+               new Movie("The Shawshank Redemption", "Tim Robbins", "Drama", "Frank Darabont", 1994, "R", 142, "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency."),
+                new Movie("The Godfather", "Marlon Brando", "Crime Drama", "Francis Ford Coppola", 2001, "PG-13", 175, "The aging patriarch of an organized crime dynasty in postwar New York City transfers control of his clandestine empire to his reluctant youngest son."),
+                new Movie("The Lord of the Rings: The Fellowship of the Ring", "Elijah Wood", "Adventure", "Peter Jackson", 2001, "PG-13", 178, "A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron."),
+                new Movie("The Lord of the Rings: Return of the King", "Elijah Wood", "Adventure", "Peter Jackson", 2003, "PG-13", 201, "Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring."),
+                new Movie("The Dark Knight", "Christian Bale", "Action", "Christopher Nolan", 2008, "PG-13", 152, "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.")
+            };
+
+            int index = 2;
+
+            Admin.UpdateMovie(testList, index, "time", "", 0, 300);
+
+            Assert.Equal(300, testList[1].RunTime);
+        }
+
+
+        [Fact]
+        public void TestUpdateMovieDescription()
+        {
+            List<Movie> testList = new List<Movie>
+            {
+               new Movie("The Shawshank Redemption", "Tim Robbins", "Drama", "Frank Darabont", 1994, "R", 142, "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency."),
+                new Movie("The Godfather", "Marlon Brando", "Crime Drama", "Francis Ford Coppola", 2001, "R", 175, "The aging patriarch of an organized crime dynasty in postwar New York City transfers control of his clandestine empire to his reluctant youngest son."),
+                new Movie("The Lord of the Rings: The Fellowship of the Ring", "Elijah Wood", "Adventure", "Peter Jackson", 2001, "PG-13", 178, "A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron."),
+                new Movie("The Lord of the Rings: Return of the King", "Elijah Wood", "Adventure", "Peter Jackson", 2003, "PG-13", 201, "Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring."),
+                new Movie("The Dark Knight", "Christian Bale", "Action", "Christopher Nolan", 2008, "PG-13", 152, "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.")
+            };
+
+            int index = 2;
+
+            Admin.UpdateMovie(testList, index, "description", "New Description", 0, 0);
+
+            Assert.Equal("New Description", testList[1].Description);
+        }
+
+        [Fact]
+        public void TestUpdateMovieDescription2()
+        {
+            List<Movie> testList = new List<Movie>
+            {
+               new Movie("The Shawshank Redemption", "Tim Robbins", "Drama", "Frank Darabont", 1994, "R", 142, "Two imprisoned men bond over a number of years, finding solace and eventual redemption through acts of common decency."),
+                new Movie("The Godfather", "Marlon Brando", "Crime Drama", "Francis Ford Coppola", 2001, "R", 175, "The aging patriarch of an organized crime dynasty in postwar New York City transfers control of his clandestine empire to his reluctant youngest son."),
+                new Movie("The Lord of the Rings: The Fellowship of the Ring", "Elijah Wood", "Adventure", "Peter Jackson", 2001, "PG-13", 178, "A meek Hobbit from the Shire and eight companions set out on a journey to destroy the powerful One Ring and save Middle-earth from the Dark Lord Sauron."),
+                new Movie("The Lord of the Rings: Return of the King", "Elijah Wood", "Adventure", "Peter Jackson", 2003, "PG-13", 201, "Gandalf and Aragorn lead the World of Men against Sauron's army to draw his gaze from Frodo and Sam as they approach Mount Doom with the One Ring."),
+                new Movie("The Dark Knight", "Christian Bale", "Action", "Christopher Nolan", 2008, "PG-13", 152, "When the menace known as the Joker wreaks havoc and chaos on the people of Gotham, Batman must accept one of the greatest psychological and physical tests of his ability to fight injustice.")
+            };
+
+            int index = 2;
+
+            Admin.UpdateMovie(testList, index, "desc", "New Description", 0, 0);
+
+            Assert.Equal("New Description", testList[1].Description);
+        }
+
         // RemoveMovie() tests
 
         [Fact]

@@ -605,6 +605,3 @@ while (keepGoing == true)
 
 }
 
-
-
-
