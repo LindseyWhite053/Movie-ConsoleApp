@@ -8,17 +8,6 @@ namespace Mockbuster
 {
     public class User
     {
-
-        public static void ViewMovies(List<Movie> theList)
-        {
-
-            for (int i = 0; i < theList.Count; i++)
-            {
-                Console.WriteLine($"({i+1}) {theList[i]}");
-            }
-
-        }
-
         public static void ViewMenu()
         {
             Console.WriteLine();
@@ -42,6 +31,16 @@ namespace Mockbuster
             Console.WriteLine("(4) Find a movie by lead actor/actress.");
             Console.SetCursorPosition((Console.WindowWidth - userMenuLine1.Length) / 2, Console.CursorTop);
             Console.WriteLine("(5) Find a movie by director.");
+
+        }
+
+        public static void ViewMovies(List<Movie> theList)
+        {
+
+            for (int i = 0; i < theList.Count; i++)
+            {
+                Console.WriteLine($"({i+1}) {theList[i]}");
+            }
 
         }
 
@@ -122,5 +121,6 @@ namespace Mockbuster
 
             return filteredList;
         }
+
     }
 }

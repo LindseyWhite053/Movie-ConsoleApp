@@ -407,7 +407,7 @@ namespace Mockbuster_Tests
 
             int index = 1;
 
-            Admin.UpdateMovie(testList, index, "title", "Shawshank Redemption");
+            Admin.UpdateMovie(testList, index, "title", "Shawshank Redemption", 0, 0);
 
             Assert.Equal("Shawshank Redemption", testList[0].MovieTitle);
         }
@@ -426,7 +426,7 @@ namespace Mockbuster_Tests
 
             int index = 1;
 
-            Admin.UpdateMovie(testList, index, "actor", "Morgan Freeman");
+            Admin.UpdateMovie(testList, index, "actor", "Morgan Freeman", 0, 0);
 
             Assert.Equal("Morgan Freeman", testList[0].MainActor);
         }
@@ -445,7 +445,7 @@ namespace Mockbuster_Tests
 
             int index = 2;
 
-            Admin.UpdateMovie(testList, index, "genre", "Crime");
+            Admin.UpdateMovie(testList, index, "genre", "Crime", 0, 0);
 
             Assert.Equal("Crime", testList[1].Genre);
         }
@@ -464,7 +464,7 @@ namespace Mockbuster_Tests
 
             int index = 2;
 
-            Admin.UpdateMovie(testList, index, "genre", "Frank Darabont");
+            Admin.UpdateMovie(testList, index, "genre", "Frank Darabont", 0, 0);
 
             Assert.Equal("Frank Darabont", testList[1].Genre);
         }

@@ -63,12 +63,48 @@ while (keepGoing == true)
     string text;
     string yesNo;
     List<Movie> newList;
-    bool goAgain;
+    DateTime now = DateTime.Now;
+    int todayYear = now.Year;
     switch (num)
     {
         case 1:
+            // View all movies
             Console.WriteLine("All Movies:");
             User.ViewMovies(Movies);
+
+            // Ask the user if they would like to view additional information about the movie
+            Console.Write("\nWould you like to view additional information about a movie(y/n): ");
+            yesNo = YesNo(Console.ReadLine().ToLower().Trim());
+
+            do {  
+                if (yesNo == "yes")
+                {
+
+                    Console.Write("\nWhich movie would you like more information on(select by number): ");
+
+                    while (true)
+                    {
+                        int.TryParse(Console.ReadLine().Trim(), out num);
+
+                        if ((num > 0) && (num <= Movies.Count))
+                        {
+                            break;
+                        }
+                        else
+                        {
+                            Console.Write("Please enter a valid selection: ");
+                        }
+                    }
+
+                    Movies[num - 1].ViewInfo();
+
+                }
+
+                Console.Write("\nWould you like information on another movie(y/n): ");
+
+                yesNo = YesNo(Console.ReadLine().ToLower().Trim());
+
+            } while (GoAgain(yesNo));
             break;
 
         case 2:
@@ -83,6 +119,34 @@ while (keepGoing == true)
                 {
                     Console.WriteLine("Movies that fit your search: ");
                     User.ViewMovies(newList);
+
+                    // Ask the user if they would like to view additional information about the movie
+                    Console.Write("\nWould you like to view additional information about a movie(y/n): ");
+                    yesNo = YesNo(Console.ReadLine().ToLower().Trim());
+
+
+                        if (yesNo == "yes")
+                        {
+
+                            Console.Write("\nWhich movie would you like more information on(select by number): ");
+
+                            while (true)
+                            {
+                                int.TryParse(Console.ReadLine().Trim(), out num);
+
+                                if ((num > 0) && (num <= newList.Count))
+                                {
+                                    break;
+                                }
+                                else
+                                {
+                                    Console.Write("Please enter a valid selection: ");
+                                }
+                            }
+
+                            Movies[num - 1].ViewInfo();
+
+                    }
                 }
                 else
                 {
@@ -107,6 +171,34 @@ while (keepGoing == true)
                 {
                     Console.WriteLine("Movies that fit your search: ");
                     User.ViewMovies(newList);
+
+                    // Ask the user if they would like to view additional information about the movie
+                    Console.Write("\nWould you like to view additional information about a movie(y/n): ");
+                    yesNo = YesNo(Console.ReadLine().ToLower().Trim());
+
+
+                    if (yesNo == "yes")
+                    {
+
+                        Console.Write("\nWhich movie would you like more information on(select by number): ");
+
+                        while (true)
+                        {
+                            int.TryParse(Console.ReadLine().Trim(), out num);
+
+                            if ((num > 0) && (num <= newList.Count))
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                Console.Write("Please enter a valid selection: ");
+                            }
+                        }
+
+                        Movies[num - 1].ViewInfo();
+
+                    }
                 }
                 else
                 {
@@ -131,11 +223,40 @@ while (keepGoing == true)
                 {
                     Console.WriteLine("Movies that fit your search: ");
                     User.ViewMovies(newList);
+
+                    // Ask the user if they would like to view additional information about the movie
+                    Console.Write("\nWould you like to view additional information about a movie(y/n): ");
+                    yesNo = YesNo(Console.ReadLine().ToLower().Trim());
+
+
+                    if (yesNo == "yes")
+                    {
+
+                        Console.Write("\nWhich movie would you like more information on(select by number): ");
+
+                        while (true)
+                        {
+                            int.TryParse(Console.ReadLine().Trim(), out num);
+
+                            if ((num > 0) && (num <= newList.Count))
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                Console.Write("Please enter a valid selection: ");
+                            }
+                        }
+
+                        Movies[num - 1].ViewInfo();
+
+                    }
                 }
                 else
                 {
                     Console.WriteLine($"Unable to find any movies with the lead actor/actress {text}. ");
                 }
+
 
                 Console.Write("\nWould you like to find another movie by lead actor/actress(y/n): ");
 
@@ -156,12 +277,39 @@ while (keepGoing == true)
                 {
                     Console.WriteLine("Movies that fit your search: ");
                     User.ViewMovies(newList);
+
+                    // Ask the user if they would like to view additional information about the movie
+                    Console.Write("\nWould you like to view additional information about a movie(y/n): ");
+                    yesNo = YesNo(Console.ReadLine().ToLower().Trim());
+
+
+                    if (yesNo == "yes")
+                    {
+
+                        Console.Write("\nWhich movie would you like more information on(select by number): ");
+
+                        while (true)
+                        {
+                            int.TryParse(Console.ReadLine().Trim(), out num);
+
+                            if ((num > 0) && (num <= newList.Count))
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                Console.Write("Please enter a valid selection: ");
+                            }
+                        }
+
+                        Movies[num - 1].ViewInfo();
+                    }
                 }
                 else
                 {
                     Console.WriteLine($"Unable to find any movies with the director {text}. ");
                 }
-            
+
                 Console.Write("\nWould you like to find another movie by director(y/n): ");
 
                 yesNo = YesNo(Console.ReadLine().ToLower().Trim());
@@ -215,16 +363,72 @@ while (keepGoing == true)
                     Console.Write("Enter the movie director: ");
                     string director = Console.ReadLine().Trim();
 
-                    //Validate the information entered was correct 
-                    Movie newMovie = new Movie(title, actor, genre, director);
-                    Console.Write($"\nWould you like to add {newMovie} to the movie list(y/n)? ");
+                    // Prompt the user to add additional information to the movie
+                    Console.Write("Would you like to add additional information such as the year released, rating, run time, and description at this time?\n(y/n): ");
+                    yesNo = YesNo(Console.ReadLine().ToLower().Trim());
+
+                    Movie newMovie;
+                    if (yesNo == "yes")
+                    {
+                        Console.Write("Enter the year your movie was released: ");
+                        int year;
+                        while (true)
+                        {
+                            int.TryParse(Console.ReadLine().Trim(), out year);
+
+                            if ((year >= 1878) && (year <= todayYear))
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                Console.Write("Please enter a valid year: ");
+                            }
+                        }
+
+                        Console.Write("Enter the movie rating: ");
+                        string rating = Console.ReadLine().Trim();
+
+                        Console.Write("Enter the your movie's runtime in minutes: ");
+                        int runTime;
+
+                        while (true)
+                        {
+                            int.TryParse(Console.ReadLine().Trim(), out runTime);
+
+                            if ((runTime > 3))
+                            {
+                                break;
+                            }
+                            else
+                            {
+                                Console.Write("Please enter the run time in minutes: ");
+                            }
+                        }
+
+                        Console.Write("Enter the movie decription: ");
+                        string description = Console.ReadLine().Trim();
+
+                        newMovie = new Movie(title, actor, genre, director, year, rating, runTime, description);
+
+                        Console.WriteLine($"\nYour new movie is: ");
+                        newMovie.ViewInfo();
+                        Console.Write($"\nWould you like to add {newMovie} to the movie list(y/n)? ");
+
+                    }
+                    else
+                    {
+                        newMovie = new Movie(title, actor, genre, director);
+
+                        Console.Write($"\nWould you like to add {newMovie} to the movie list(y/n)? ");
+                    }
                 
                     yesNo = YesNo(Console.ReadLine().ToLower().Trim());
 
 
                     if (yesNo == "yes")
                     {
-                        Admin.AddMovie(Movies, title, actor, genre, director);
+                        Movies.Add(newMovie);
                     }
                     else if (yesNo == "no")
                     {
@@ -268,18 +472,20 @@ while (keepGoing == true)
                         }
                     }
 
-                    Console.WriteLine($"\n{newList[num - 1]} has been selected.");
-                    Console.Write("Continue with editing(y/n): ");
+                    Console.WriteLine($"\nYou have selected:");
+                    newList[num - 1].ViewInfo();
+                    Console.Write("\nWould you like to continue with editing(y/n): ");
                     yesNo = YesNo(Console.ReadLine().ToLower().Trim());
 
                     if (yesNo == "yes")
                     {
-                        // using the index number display the attributes and ask which one they would like to edit
-                        Admin.DisplayAttributes(newList, num);
-                        Console.Write("\nWhich attribute would you like to update \"title\", \"actor\", \"genre\", \"director\": ");
+                        // Display the selected movie info and ask which one they would like to edit
+                        Console.Write("\nWhich attribute would you like to update \"title\", \"year\", \"genre\", \"run time\", \"rating\", \"actor\", \"director\", \"description\": ");
                         input = Console.ReadLine().ToLower().Trim();
 
-                        string newText;
+                        string newText = "";
+                        int newYear = 0;
+                        int newRunTime = 0;
                         while (true)
                         {
                             if (input == "title")
@@ -287,7 +493,7 @@ while (keepGoing == true)
                                 Console.Write($"Enter new text to replace \"{newList[num - 1].MovieTitle}\": ");
                                 newText = Console.ReadLine().Trim();
 
-                                Console.WriteLine($"\"{newList[num - 1]}\" will be updated to: \n\"{newText} starring {newList[num - 1].MainActor} ({newList[num - 1].Genre}), Directed by {newList[num - 1].Director}\"");
+                                Console.WriteLine($"\"{newList[num - 1].MovieTitle}\" title will be updated to \"{newText}\"");
                                 break;
                             }
                             else if (input == "actor" || input == "actress")
@@ -295,7 +501,7 @@ while (keepGoing == true)
                                 Console.Write($"Enter new text to replace \"{newList[num - 1].MainActor}\": ");
                                 newText = Console.ReadLine().Trim();
 
-                                Console.WriteLine($"\"{newList[num - 1]}\" will be updated to: \n\"{newList[num - 1].MovieTitle} starring {newText} ({newList[num - 1].Genre}), Directed by {newList[num - 1].Director}\"");
+                                Console.WriteLine($"\"{newList[num - 1].MovieTitle}\" lead actor/acress will be updated to \"{newText}\"");
                                 break;
                             }
                             else if (input == "genre")
@@ -303,7 +509,7 @@ while (keepGoing == true)
                                 Console.Write($"Enter new text to replace \"{newList[num - 1].Genre}\": ");
                                 newText = Console.ReadLine().Trim();
 
-                                Console.WriteLine($"\"{newList[num - 1]}\" will be updated to: \n\"{newList[num - 1].MovieTitle} starring {newList[num - 1].MainActor} ({newText}), Directed by {newList[num - 1].Director}\"");
+                                Console.WriteLine($"\"{newList[num - 1].MovieTitle}\" genre will be updated to \"{newText}\"");
                                 break;
                             }
                             else if (input == "director")
@@ -311,12 +517,71 @@ while (keepGoing == true)
                                 Console.Write($"Enter new text to replace \"{newList[num - 1].Director}\": ");
                                 newText = Console.ReadLine().Trim();
 
-                                Console.WriteLine($"\"{newList[num - 1]}\" will be updated to: \n\"{newList[num - 1].MovieTitle} starring {newList[num - 1].MainActor} ({newList[num - 1].Genre}), Directed by {newText}\"");
+                                Console.WriteLine($"\"{newList[num - 1].MovieTitle}\" director will be updated to \"{newText}\"");
+                                break;
+                            }
+                            else if (input == "year")
+                            {
+                                Console.Write($"Enter new text to replace \"{newList[num - 1].Year}\": ");
+
+                                while (true)
+                                {
+                                    int.TryParse(Console.ReadLine().Trim(), out newYear);
+
+                                    if ((newYear >= 1878) && (newYear <= todayYear))
+                                    {
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        Console.Write("Please enter a valid year: ");
+                                    }
+                                }
+
+                                Console.WriteLine($"\"{newList[num - 1].MovieTitle}\" year released will be updated to \"{newYear}\"");
+                                break;
+                            }
+                            else if (input == "rating")
+                            {
+                                Console.Write($"Enter new text to replace \"{newList[num - 1].Rating}\": ");
+                                newText = Console.ReadLine().Trim();
+
+                                Console.WriteLine($"\"{newList[num - 1].MovieTitle}\" rating will be updated to \"{newText}\"");
+                                break;
+                            }
+                            else if (input == "run time" || input == "time")
+                            {
+                                Console.Write($"Enter new text to replace \"{newList[num - 1].RunTime}\": ");
+
+                                while (true)
+                                {
+                                    int.TryParse(Console.ReadLine().Trim(), out newRunTime);
+
+                                    if ((newRunTime > 3))
+                                    {
+                                        break;
+                                    }
+                                    else
+                                    {
+                                        Console.Write("Please enter the run time in minutes: ");
+                                    }
+                                }
+
+                                Console.WriteLine($"\"{newList[num - 1].MovieTitle}\" run time will be updated to: \"{newRunTime}\" minutes");
+                                break;
+                            }
+                            else if (input == "description" || input == "desc")
+                            {
+                                Console.WriteLine($"Current description: \"{newList[num - 1].Description}\"");
+                                Console.Write($"Enter new text to replace this description: ");
+                                newText = Console.ReadLine().Trim();
+
+                                Console.WriteLine($"\"{newList[num - 1].MovieTitle}\" description will be updated to: \n\"{newText}\"");
                                 break;
                             }
                             else
                             {
-                                Console.Write("Please enter \"title\", \"actor\", \"genre\", \"director\": ");
+                                Console.Write("Please enter \"title\", \"actor\", \"genre\", \"director\", \"year\", \"rating\", \"run time\", \"description\": ");
                                 input = Console.ReadLine().ToLower().Trim();
                             }
                         }
@@ -326,7 +591,7 @@ while (keepGoing == true)
 
                         if (yesNo == "yes")
                         {
-                            Admin.UpdateMovie(newList, num, input, newText);
+                            Admin.UpdateMovie(newList, num, input, newText, newYear, newRunTime);
                         }
                         else if (yesNo == "no")
                         {

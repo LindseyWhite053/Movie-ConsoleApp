@@ -50,17 +50,7 @@ namespace Mockbuster
             return true;
         }
 
-        public static void DisplayAttributes(List<Movie> theList, int index)
-        {
-            // - using the list and index number display the attributes and ask which one they would like to edit
-            Console.WriteLine($"Title: {theList[index - 1].MovieTitle}");
-            Console.WriteLine($"Actor: {theList[index - 1].MainActor}");
-            Console.WriteLine($"Genre: {theList[index - 1].Genre}");
-            Console.WriteLine($"Director: {theList[index - 1].Director}");
-        }
-
-
-        public static void UpdateMovie(List<Movie> theList, int index, string attribute, string newText)
+        public static void UpdateMovie(List<Movie> theList, int index, string attribute, string newText, int newYear, int newTime)
         {
             // using  the list, index number, attribute name, and new string update the attribute according to the users input
             if (attribute == "title")
@@ -75,12 +65,29 @@ namespace Mockbuster
             {
                 theList[index - 1].Genre = newText;
             }
-            else
+            else if (attribute == "director")
             {
                 theList[index - 1].Director = newText;
             }
+            else if (attribute == "year")
+            {
+                theList[index - 1].Year = newYear;
+            }
+            else if (attribute == "rating")
+            {
+                theList[index - 1].Rating = newText;
+            }
+            else if (attribute == "run time" || attribute == "time")
+            {
+                theList[index - 1].RunTime = newTime;
+            }
+            else if (attribute == "description" || attribute == "desc")
+            {
+                theList[index - 1].Description = newText;
+            }
 
-            Console.WriteLine($"Your movie has been updated to {theList[index-1]}");
+            Console.WriteLine($"Your movie has been updated to");
+            theList[index - 1].ViewInfo();
 
         }
 
