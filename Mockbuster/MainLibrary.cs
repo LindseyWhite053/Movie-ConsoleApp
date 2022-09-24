@@ -9,7 +9,6 @@ namespace Mockbuster
     internal class MainLibrary
     {
         //=============================Program Methods=====================================
-
         public static void WelcomeMessage()
         {
             string welcomeLine1 = "╔════════════════════════════════╗	";
@@ -22,7 +21,6 @@ namespace Mockbuster
             Console.SetCursorPosition((Console.WindowWidth - welcomeLine1.Length) / 2, Console.CursorTop);
             Console.WriteLine(welcomeLine3);
         }
-
 
         public static string YesNo(string input)
         {
